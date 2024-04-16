@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "waxed:candle_string"
+          "name": "waxed:wick"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "waxed:blocks/candle_string"
+  "random_sequence": "waxed:blocks/wick"
 }

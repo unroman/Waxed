@@ -2,21 +2,20 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "C": {
-      "tag": "minecraft:coals"
+    "H": {
+      "item": "minecraft:honeycomb"
     },
     "S": {
-      "item": "minecraft:string"
+      "item": "waxed:wick"
     }
   },
   "pattern": [
-    "SSS",
-    "SCS",
-    "SSS"
+    "S",
+    "H"
   ],
   "result": {
-    "count": 16,
-    "item": "waxed:candle_string"
+    "count": 4,
+    "item": "minecraft:candle"
   },
   "show_notification": true
 }

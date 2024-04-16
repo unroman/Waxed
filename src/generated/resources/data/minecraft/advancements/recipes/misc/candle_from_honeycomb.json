@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_string": {
+    "has_honeycomb": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:string"
+              "minecraft:honeycomb"
             ]
           }
         ]
@@ -15,20 +15,33 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "waxed:candle_string"
+        "recipe": "minecraft:candle_from_honeycomb"
       },
       "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_wick": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "waxed:wick"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
     [
-      "has_string",
+      "has_wick",
+      "has_honeycomb",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "waxed:candle_string"
+      "minecraft:candle_from_honeycomb"
     ]
   },
   "sends_telemetry_event": false
