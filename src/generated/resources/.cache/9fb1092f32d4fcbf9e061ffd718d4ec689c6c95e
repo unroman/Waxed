@@ -1,7 +1,9 @@
-// 1.20.1	2024-04-16T09:48:05.1098887	Recipes
-d48a3523ddd02b9d9f82bbb45c75767f615d6be3 data/minecraft/advancements/recipes/misc/candle.json
+// 1.20.1	2024-04-16T16:22:50.3161671	Recipes
+ac8875e932042242bc102417a48e1949af6f699c data/minecraft/advancements/recipes/misc/candle.json
+a167d964d5ab237fdffe165cbe28a48ab85d4c18 data/minecraft/advancements/recipes/misc/candle_from_honeycomb.json
 ed6928dafbc58f6312731de06313a1b3d79133a3 data/minecraft/advancements/recipes/redstone/redstone_from_waxed_redstone_block.json
-346013a1f9fdfec1d8e5baeaf07d7ab7dd8ba3dd data/minecraft/recipes/candle.json
+abc5ff2cd6cad7635cc07b9cf61f5059a1548204 data/minecraft/recipes/candle.json
+ceb2612ca94e876ce0b8dd27ca550aea94f1d56f data/minecraft/recipes/candle_from_honeycomb.json
 8bfa47215e6e3d9a4e6a2854f56052f14e38b08c data/minecraft/recipes/redstone_from_waxed_redstone_block.json
 ed27c0ea66697b78715f655311540c9a994d530c data/waxed/advancements/recipes/building_blocks/amber_wax_block.json
 064de7ecf814b7d4b74b2c06ee5ff29a0114fe14 data/waxed/advancements/recipes/building_blocks/amber_wax_pillar.json
@@ -127,9 +129,9 @@ fb476eb38c439a2e4834f0a294a84de6710a27c6 data/waxed/advancements/recipes/buildin
 5acf96d05a622379a927f984dfe980b432170387 data/waxed/advancements/recipes/building_blocks/white_wax_pillar.json
 4c2bfa96f646c1db046ea4bb61b339c27e509969 data/waxed/advancements/recipes/building_blocks/yellow_wax_block.json
 1b3e6937b631b060b07c664d98992f1dd0fa2cb1 data/waxed/advancements/recipes/building_blocks/yellow_wax_pillar.json
-30219b7cdb6b5b3b59473ebb0e788bc1fdd5ebb3 data/waxed/advancements/recipes/misc/candle_string.json
 91cd17e8a8f1d6ade1b1c52e087b83808f0d83a7 data/waxed/advancements/recipes/misc/wax.json
 2d3aabf0880a05d201046410e41f0175f7f3cd3e data/waxed/advancements/recipes/misc/wax_block_from_smelting_empty_honeycomb.json
+90e05b66573d7a9c347899d36f98e4e5a78af97f data/waxed/advancements/recipes/misc/wick.json
 c45b848966eb06f09ced62a5e0670b6a9bbcd3f9 data/waxed/recipes/amber_wax_block.json
 c212cadcc42cb287624c3a6fdd8981353cd50cb0 data/waxed/recipes/amber_wax_pillar.json
 6953632a0cecbcad6327ef5342c343d8e14885b9 data/waxed/recipes/aqua_wax_block.json
@@ -142,7 +144,6 @@ c212cadcc42cb287624c3a6fdd8981353cd50cb0 data/waxed/recipes/amber_wax_pillar.jso
 78ef2609edaec6048e8677e8532989084bb9d773 data/waxed/recipes/blue_wax_pillar.json
 cb04881f6be10b8962d0840ad2e0610e7f4a25a1 data/waxed/recipes/brown_wax_block.json
 232cc4c1b171e9201f55ba4176a6e4b720c1a452 data/waxed/recipes/brown_wax_pillar.json
-b920d499ad38387004f0672cf540cbfead04cf84 data/waxed/recipes/candle_string.json
 02462725dbe108e543051f3c8f2f260163852d32 data/waxed/recipes/coral_wax_block.json
 5d4ac8f1fea2a6facd43c1a85a0c29cc8894b304 data/waxed/recipes/coral_wax_pillar.json
 d00ac64361e6361c2f97b8f7ecccec6febd90f83 data/waxed/recipes/cyan_wax_block.json
@@ -255,5 +256,6 @@ f56098c50d11c4d6baa8579ac6fa429576345e92 data/waxed/recipes/waxed_verdant_concre
 4d102a1e1f1215b26d13a05ae814043ef9bb68cf data/waxed/recipes/wax_pillar.json
 90e1c31712f48d376900cc31edd0d7d0872b709a data/waxed/recipes/white_wax_block.json
 fce9e3cb01d9cd011bd8e52a40dab66fa38eb961 data/waxed/recipes/white_wax_pillar.json
+9a38bf3e769123087493e7762ddcdc707d53675e data/waxed/recipes/wick.json
 9cef347a7c68a69780dd0dcc9af217e0bb3cd32c data/waxed/recipes/yellow_wax_block.json
 9f423f2c0111fa6284244e90142c1b7176b4b6f3 data/waxed/recipes/yellow_wax_pillar.json

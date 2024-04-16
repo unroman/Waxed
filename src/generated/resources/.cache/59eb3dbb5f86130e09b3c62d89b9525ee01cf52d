@@ -1,4 +1,4 @@
-// 1.20.1	2024-04-14T08:52:32.0820675	Loot Tables
+// 1.20.1	2024-04-16T16:22:50.3111807	Loot Tables
 ab0aa181eef7972959efd2372976848cfef2fb26 data/waxed/loot_tables/blocks/amber_wax_block.json
 a931e38017ac0107c4b4597c2199a9ca56970e79 data/waxed/loot_tables/blocks/amber_wax_pillar.json
 aaf7747f3466d59789ded961cc988911915bea5a data/waxed/loot_tables/blocks/aqua_wax_block.json
@@ -11,7 +11,6 @@ d7ef07a407ee6075fec2d63f69393f4c097e4a47 data/waxed/loot_tables/blocks/black_wax
 9cb2bb699109bc3e62e1b99a8ed9795daeac6bc8 data/waxed/loot_tables/blocks/blue_wax_pillar.json
 704a939d146e0ceb97dd556058d71a6728ed2b34 data/waxed/loot_tables/blocks/brown_wax_block.json
 dcae5fe88f812738cfe2888303e107af5188845c data/waxed/loot_tables/blocks/brown_wax_pillar.json
-f0f4b681f00e27a94b92484e5c8d11b4c64313cc data/waxed/loot_tables/blocks/candle_string.json
 d369e5a62468650d592d00e0b8e4009b71d50876 data/waxed/loot_tables/blocks/coral_wax_block.json
 c99b6cf8c7bb9f79ce6e4b48d5030fda6885185c data/waxed/loot_tables/blocks/coral_wax_pillar.json
 d4c00d63463e9fcf5359cd7ba0d26c580382f3a1 data/waxed/loot_tables/blocks/cyan_wax_block.json
@@ -122,5 +121,6 @@ e31d1a020d17260ff7fa3291f202a31a1f8be69f data/waxed/loot_tables/blocks/waxed_ver
 37aa04eee661864ad3dad0040a1edc7aea0850a1 data/waxed/loot_tables/blocks/wax_pillar.json
 2b480e3eac71fe30f9d6d19fc25744b45cbdd7d3 data/waxed/loot_tables/blocks/white_wax_block.json
 e04cd6c239f77e351081b8c9bf2fba9eb25516be data/waxed/loot_tables/blocks/white_wax_pillar.json
+4aa08eb923f4d542c0dc6d0a85ad0e65e1af7ecc data/waxed/loot_tables/blocks/wick.json
 06a7594b37d7e2008da1f38fb1f7896c9bd8b7cf data/waxed/loot_tables/blocks/yellow_wax_block.json
 242ff38efa385c1e8cdbc12afaa8268be08d05df data/waxed/loot_tables/blocks/yellow_wax_pillar.json
