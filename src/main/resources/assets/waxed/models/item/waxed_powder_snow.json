@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "waxed:block/waxed_powder_snow"
+  }
+}

@@ -1,12 +1,25 @@
+buildscript {
+    repositories {
+        maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
+    }
+}
+
 plugins {
     id 'eclipse'
     id 'maven-publish'
     id 'net.minecraftforge.gradle' version '5.1.+'
+    id 'org.parchmentmc.librarian.forgegradle' version '1.+'
 }
+apply plugin: 'org.spongepowered.mixin'
 
-version = '0.7b-1.19.2'
-group = 'net.im_maker.wallpapers' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = 'wallpapers'
+
+version = '0.1a-Forge-1.20.1'
+group = 'net.im_maker.waxed' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = 'waxed'
 
 // Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
@@ -26,7 +39,7 @@ minecraft {
     //
     // Use non-default mappings at your own risk. They may not always work.
     // Simply re-run your setup task after changing the mappings to update your workspace.
-    mappings channel: 'official', version: '1.19.2'
+    mappings channel: 'parchment', version: '2023.09.03-1.20.1'
 
     // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg') // Currently, this location cannot be changed from the default.
 
@@ -49,10 +62,12 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
-            property 'forge.enabledGameTestNamespaces', 'wallpapers'
+            property 'forge.enabledGameTestNamespaces', 'waxed'
+
+            arg "-mixin.config=dye_depot.mixins.json"
 
             mods {
-                wallpapers {
+                waxed {
                     source sourceSets.main
                 }
             }
@@ -65,10 +80,10 @@ minecraft {
 
             property 'forge.logging.console.level', 'debug'
 
-            property 'forge.enabledGameTestNamespaces', 'wallpapers'
+            property 'forge.enabledGameTestNamespaces', 'waxed'
 
             mods {
-                wallpapers {
+                waxed {
                     source sourceSets.main
                 }
             }
@@ -84,10 +99,10 @@ minecraft {
 
             property 'forge.logging.console.level', 'debug'
 
-            property 'forge.enabledGameTestNamespaces', 'wallpapers'
+            property 'forge.enabledGameTestNamespaces', 'waxed'
 
             mods {
-                wallpapers {
+                waxed {
                     source sourceSets.main
                 }
             }
@@ -101,10 +116,10 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
-            args '--mod', 'wallpapers', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+            args '--mod', 'waxed', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
 
             mods {
-                wallpapers {
+                waxed {
                     source sourceSets.main
                 }
             }
@@ -116,20 +131,33 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
-    // Put repositories for dependencies here
-    // ForgeGradle automatically adds the Forge maven and Maven Central for you
-
-    // If you have mod jar dependencies in ./libs, you can declare them as a repository like so:
-    // flatDir {
-    //     dir 'libs'
-    // }
+    maven {
+        url "https://maven.blamejared.com"
+        content {
+            includeGroup "mezz.jei"
+        }
+    }
+    maven {
+        url = "https://api.modrinth.com/maven"
+    }
 }
 
 dependencies {
     // Specify the version of Minecraft to use. If this is any group other than 'net.minecraft', it is assumed
     // that the dep is a ForgeGradle 'patcher' dependency, and its patches will be applied.
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
-    minecraft 'net.minecraftforge:forge:1.19.2-43.3.2'
+    minecraft 'net.minecraftforge:forge:1.20.1-47.2.0'
+    compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"))
+    compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}"))
+    runtimeOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}"))
+
+    implementation fg.deobf("maven.modrinth:dye-depot:1.0.0-forge")
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+
+
+    //modCompileOnly "maven.modrinth:dye-depot:mc1.20.1-1.0.0-forge"
+
+
 
     // Real mod deobf dependency examples - these get remapped to your current mappings
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api") // Adds JEI API as a compile dependency
@@ -148,12 +176,12 @@ dependencies {
 jar {
     manifest {
         attributes([
-                "Specification-Title"     : "wallpapers",
-                "Specification-Vendor"    : "wallpaperssareus",
+                "Specification-Title"     : "waxed",
+                "Specification-Vendor"    : "waxed_sareus",
                 "Specification-Version"   : "1", // We are version 1 of ourselves
                 "Implementation-Title"    : project.name,
                 "Implementation-Version"  : project.jar.archiveVersion,
-                "Implementation-Vendor"   : "wallpaperssareus",
+                "Implementation-Vendor"   : "waxed_sareus",
                 "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }

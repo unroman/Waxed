@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "D": {
+      "item": "dye_depot:navy_dye"
+    },
+    "W": {
+      "item": "waxed:wax_block"
+    }
+  },
+  "pattern": [
+    "WWW",
+    "WDW",
+    "WWW"
+  ],
+  "result": {
+    "count": 8,
+    "item": "waxed:navy_wax_block"
+  },
+  "show_notification": true
+}

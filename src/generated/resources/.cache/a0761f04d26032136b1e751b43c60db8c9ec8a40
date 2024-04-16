@@ -1,0 +1,8 @@
+// 1.20.1	2024-04-14T10:20:13.1883542	Tags for minecraft:item mod id waxed
+04031e1bac6e86570edd0db319f7a091cda547d0 data/forge/tags/items/gravel.json
+a3d8291208292538f407ae29849555b097e4fb6a data/forge/tags/items/sand.json
+7fef43fc72db02ad48b0811ef83daf6ab8ee526a data/forge/tags/items/sand/colorless.json
+3f06fd2399b70d2a9a98c4ad746c6c282bb59086 data/forge/tags/items/sand/red.json
+a3d8291208292538f407ae29849555b097e4fb6a data/minecraft/tags/items/sand.json
+a3d8291208292538f407ae29849555b097e4fb6a data/minecraft/tags/items/smelts_to_glass.json
+0326e8699598d6db865cf62ba7ecc5265955d46e data/minecraft/tags/items/soul_fire_base_blocks.json

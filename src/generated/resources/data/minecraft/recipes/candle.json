@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "S": {
+      "item": "waxed:candle_string"
+    },
+    "W": {
+      "item": "waxed:wax"
+    }
+  },
+  "pattern": [
+    "S",
+    "W"
+  ],
+  "result": {
+    "count": 4,
+    "item": "minecraft:candle"
+  },
+  "show_notification": true
+}

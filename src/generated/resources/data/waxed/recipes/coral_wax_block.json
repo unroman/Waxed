@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "D": {
+      "item": "dye_depot:coral_dye"
+    },
+    "W": {
+      "item": "waxed:wax_block"
+    }
+  },
+  "pattern": [
+    "WWW",
+    "WDW",
+    "WWW"
+  ],
+  "result": {
+    "count": 8,
+    "item": "waxed:coral_wax_block"
+  },
+  "show_notification": true
+}
