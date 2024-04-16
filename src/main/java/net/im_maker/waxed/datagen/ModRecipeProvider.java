@@ -190,7 +190,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         waxedBlock(WaxedModBlocks.WAXED_GINGER_CONCRETE_POWDER.get(), DDItems.GINGER_CONCRETE_POWDER.get(), pWriter);
         waxedBlock(WaxedModBlocks.WAXED_TAN_CONCRETE_POWDER.get(), DDItems.TAN_CONCRETE_POWDER.get(), pWriter);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, WaxedModBlocks.CANDLE_STRING.get(), 16)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, WaxedModBlocks.WICK.get(), 16)
                 .pattern("SSS")
                 .pattern("SCS")
                 .pattern("SSS")
@@ -202,11 +202,20 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Blocks.CANDLE, 4)
                 .pattern("S")
                 .pattern("W")
-                .define('S', WaxedModBlocks.CANDLE_STRING.get())
+                .define('S', WaxedModBlocks.WICK.get())
                 .define('W', WaxedModItems.WAX.get())
-                .unlockedBy(getHasName(WaxedModBlocks.CANDLE_STRING.get()), has(WaxedModBlocks.CANDLE_STRING.get()))
+                .unlockedBy(getHasName(WaxedModBlocks.WICK.get()), has(WaxedModBlocks.WICK.get()))
                 .unlockedBy(getHasName(WaxedModItems.WAX.get()), has(WaxedModItems.WAX.get()))
                 .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Blocks.CANDLE, 4)
+                .pattern("S")
+                .pattern("H")
+                .define('S', WaxedModBlocks.WICK.get())
+                .define('H', Items.HONEYCOMB)
+                .unlockedBy(getHasName(WaxedModBlocks.WICK.get()), has(WaxedModBlocks.WICK.get()))
+                .unlockedBy(getHasName(Items.HONEYCOMB), has(Items.HONEYCOMB))
+                .save(pWriter, Blocks.CANDLE.asItem().toString() + "_from_" + Items.HONEYCOMB.toString());
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, WaxedModItems.WAX.get(), 9)
                 .requires(WaxedModBlocks.WAX_BLOCK.get())

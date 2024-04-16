@@ -24,7 +24,7 @@ public class WaxPillarBlock extends RotatedPillarBlock {
     public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pPos, BlockPos pNeighborPos) {
         BlockPos blockPosAbove = pPos.above();
         BlockState blockStateAbove = pLevel.getBlockState(blockPosAbove);
-        if (blockStateAbove.getBlock() == WaxedModBlocks.CANDLE_STRING.get() && blockStateAbove.getValue(BlockStateProperties.LIT)) {
+        if (blockStateAbove.getBlock() == WaxedModBlocks.WICK.get() && blockStateAbove.getValue(BlockStateProperties.LIT)) {
             pLevel.setBlock(pPos, pState.setValue(MELTED, true), 11);
         } else {
             pLevel.setBlock(pPos, pState.setValue(MELTED, false), 11);

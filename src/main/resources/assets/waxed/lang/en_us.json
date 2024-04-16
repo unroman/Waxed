@@ -66,8 +66,9 @@
   "block.waxed.forest_wax_pillar": "Forest Wax Pillar",
   "block.waxed.ginger_wax_pillar": "Ginger Wax Pillar",
   "block.waxed.tan_wax_pillar": "Tan Wax Pillar",
+
   "block.waxed.empty_honeycomb": "Empty Honeycomb",
-  "block.waxed.candle_string": "Candle String",
+  "block.waxed.wick": "Wick",
 
   "block.waxed.waxed_sand": "Waxed Sand",
   "block.waxed.waxed_red_sand": "Waxed Red Sand",

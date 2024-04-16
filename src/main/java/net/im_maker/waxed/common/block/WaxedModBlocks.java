@@ -26,7 +26,7 @@ public class WaxedModBlocks {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, Waxed.MOD_ID);
     public static final RegistryObject<Block> EMPTY_HONEYCOMB = registerBlock("empty_honeycomb", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).strength(0.6f).sound(SoundType.CORAL_BLOCK)));
-    public static final RegistryObject<Block> CANDLE_STRING = registerBlock("candle_string", () -> new CandleStringBlock(1, BlockBehaviour.Properties.of().noCollission().lightLevel(CandleStringBlock.LIGHT_EMISSION).strength(0.1f).sound(SoundType.WOOL).pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> WICK = registerBlock("wick", () -> new CandleStringBlock(1, BlockBehaviour.Properties.of().noCollission().lightLevel(CandleStringBlock.LIGHT_EMISSION).strength(0.1f).sound(SoundType.WOOL).pushReaction(PushReaction.DESTROY)));
     //Wax Blocks
     public static final RegistryObject<Block> WAX_BLOCK = registerBlock("wax_block", () -> wax_block(MapColor.SAND));
     public static final RegistryObject<Block> RED_WAX_BLOCK = registerBlock("red_wax_block", () -> wax_block(MapColor.COLOR_RED));

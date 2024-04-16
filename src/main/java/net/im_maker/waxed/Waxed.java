@@ -61,7 +61,7 @@ public class Waxed {
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         MutableHashedLinkedMap<ItemStack, CreativeModeTab.TabVisibility> entries = event.getEntries();
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-            addAfter(entries, Items.STRING, WaxedModBlocks.CANDLE_STRING.get());
+            addAfter(entries, Items.STRING, WaxedModBlocks.WICK.get());
             addAfter(entries, Items.HONEYCOMB, WaxedModItems.WAX.get());
         }
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
