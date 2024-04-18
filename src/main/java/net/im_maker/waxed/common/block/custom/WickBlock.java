@@ -30,6 +30,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -71,6 +72,11 @@ public class WickBlock extends Block {
             pEntity.setSecondsOnFire(2);
         }
         super.entityInside(pState, pLevel, pPos, pEntity);
+    }
+
+    @Override
+    public ItemStack getCloneItemStack(BlockState state, HitResult target, BlockGetter level, BlockPos pos, Player player) {
+        return new ItemStack(WaxedModBlocks.WICK.get());
     }
 
     @Override
