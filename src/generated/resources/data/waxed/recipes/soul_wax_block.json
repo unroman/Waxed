@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "S": {
+      "item": "waxed:wax_block"
+    },
+    "T": {
+      "tag": "minecraft:soul_fire_base_blocks"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "STS",
+    "SSS"
+  ],
+  "result": {
+    "count": 8,
+    "item": "waxed:soul_wax_block"
+  },
+  "show_notification": true
+}
