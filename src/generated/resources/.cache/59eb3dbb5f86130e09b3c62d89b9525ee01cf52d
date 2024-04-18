@@ -1,4 +1,4 @@
-// 1.20.1	2024-04-16T16:22:50.3111807	Loot Tables
+// 1.20.1	2024-04-18T01:34:28.993379	Loot Tables
 ab0aa181eef7972959efd2372976848cfef2fb26 data/waxed/loot_tables/blocks/amber_wax_block.json
 a931e38017ac0107c4b4597c2199a9ca56970e79 data/waxed/loot_tables/blocks/amber_wax_pillar.json
 aaf7747f3466d59789ded961cc988911915bea5a data/waxed/loot_tables/blocks/aqua_wax_block.json
@@ -54,6 +54,11 @@ c1199e995d326873b52c6d35838d78e93f69b8ed data/waxed/loot_tables/blocks/red_wax_b
 8cc556045a575c78593371670fd03446d4e30f51 data/waxed/loot_tables/blocks/rose_wax_pillar.json
 13f87ab07292a8683b7ec6191ed6da227072de57 data/waxed/loot_tables/blocks/slate_wax_block.json
 850ef2eb3b5072bd39994a0e29abc45cb401635d data/waxed/loot_tables/blocks/slate_wax_pillar.json
+67b7aa76d964cf92c05f81d960ca935b86bd4370 data/waxed/loot_tables/blocks/soul_candle.json
+937430d5d78d022efde4aaacbf3f2d244dd2f31a data/waxed/loot_tables/blocks/soul_candle_cake.json
+766b636700088296ca82e8b2ed64ba202a4f472c data/waxed/loot_tables/blocks/soul_wax_block.json
+79bb0ad60060274efd20dff226ce0b6d8fb17774 data/waxed/loot_tables/blocks/soul_wax_pillar.json
+d68bfaddd802edf7044455e7ed81b2298d8f19ac data/waxed/loot_tables/blocks/soul_wick.json
 cfd54027aa68dd870831c1e74a9d5815f126e65c data/waxed/loot_tables/blocks/tan_wax_block.json
 3e4a7028d4388eb0c5f06db9d045112e570ddbff data/waxed/loot_tables/blocks/tan_wax_pillar.json
 72b7bcfd9fddbfc8d2aa05002a077d10a0dc782d data/waxed/loot_tables/blocks/teal_wax_block.json
