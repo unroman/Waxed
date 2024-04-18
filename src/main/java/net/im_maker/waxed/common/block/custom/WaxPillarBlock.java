@@ -1,7 +1,7 @@
 package net.im_maker.waxed.common.block.custom;
 
 import net.im_maker.waxed.common.block.WaxedModBlocks;
-import net.im_maker.waxed.common.block.block_values.ModBlockStateProperties;
+import net.im_maker.waxed.common.block.block_values.WaxedModBlockStateProperties;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.LevelAccessor;
@@ -13,7 +13,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 
 public class WaxPillarBlock extends RotatedPillarBlock {
-    public static final BooleanProperty MELTED = ModBlockStateProperties.MELTED;
+    public static final BooleanProperty MELTED = WaxedModBlockStateProperties.MELTED;
 
     public WaxPillarBlock(Properties pProperties) {
         super(pProperties);

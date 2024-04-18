@@ -18,7 +18,7 @@ public class WaxedModItems {
     public static final RegistryObject<Item> WAXED_BUBBLE_CORAL_FAN = ITEMS.register("waxed_bubble_coral_fan", () -> new StandingAndWallBlockItem(WaxedModBlocks.WAXED_BUBBLE_CORAL_FAN.get(), WaxedModBlocks.WAXED_BUBBLE_CORAL_WALL_FAN.get(), new Item.Properties(), Direction.DOWN));
     public static final RegistryObject<Item> WAXED_FIRE_CORAL_FAN = ITEMS.register("waxed_fire_coral_fan", () -> new StandingAndWallBlockItem(WaxedModBlocks.WAXED_FIRE_CORAL_FAN.get(), WaxedModBlocks.WAXED_FIRE_CORAL_WALL_FAN.get(), new Item.Properties(), Direction.DOWN));
     public static final RegistryObject<Item> WAXED_HORN_CORAL_FAN = ITEMS.register("waxed_horn_coral_fan", () -> new StandingAndWallBlockItem(WaxedModBlocks.WAXED_HORN_CORAL_FAN.get(), WaxedModBlocks.WAXED_HORN_CORAL_WALL_FAN.get(), new Item.Properties(), Direction.DOWN));
-
+    //Wax =]
     public static final RegistryObject<Item> WAX = ITEMS.register("wax", () -> new HoneycombItem(new Item.Properties()));
 
     public static void register(IEventBus eventBus) {

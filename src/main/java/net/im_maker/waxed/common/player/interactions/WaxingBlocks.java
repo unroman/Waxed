@@ -6,7 +6,7 @@ import com.google.common.collect.ImmutableBiMap;
 import com.ninni.dye_depot.registry.DDBlocks;
 import net.im_maker.waxed.Waxed;
 import net.im_maker.waxed.common.block.WaxedModBlocks;
-import net.im_maker.waxed.common.sounds.ModSounds;
+import net.im_maker.waxed.common.sounds.WaxedModSounds;
 import net.im_maker.waxed.common.tags.WaxedModItemTags;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
@@ -24,6 +24,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 
 import java.util.Optional;
@@ -32,7 +33,7 @@ import java.util.function.Supplier;
 @Mod.EventBusSubscriber(modid = Waxed.MOD_ID)
 public class WaxingBlocks {
     public static final Supplier<BiMap<Block, Block>> WAXABLES_SHOVEL = Suppliers.memoize(() -> {
-        return ImmutableBiMap.<Block, Block>builder()
+        return ModList.get().isLoaded("dye_depot") ? ImmutableBiMap.<Block, Block>builder()
                 .put(Blocks.SAND, WaxedModBlocks.WAXED_SAND.get())
                 .put(Blocks.RED_SAND, WaxedModBlocks.WAXED_RED_SAND.get())
                 .put(Blocks.GRAVEL, WaxedModBlocks.WAXED_GRAVEL.get())
@@ -70,6 +71,28 @@ public class WaxingBlocks {
                 .put(DDBlocks.FOREST_CONCRETE_POWDER.get(), WaxedModBlocks.WAXED_FOREST_CONCRETE_POWDER.get())
                 .put(DDBlocks.GINGER_CONCRETE_POWDER.get(), WaxedModBlocks.WAXED_GINGER_CONCRETE_POWDER.get())
                 .put(DDBlocks.TAN_CONCRETE_POWDER.get(), WaxedModBlocks.WAXED_TAN_CONCRETE_POWDER.get())
+                .build() : ImmutableBiMap.<Block, Block>builder()
+                .put(Blocks.SAND, WaxedModBlocks.WAXED_SAND.get())
+                .put(Blocks.RED_SAND, WaxedModBlocks.WAXED_RED_SAND.get())
+                .put(Blocks.GRAVEL, WaxedModBlocks.WAXED_GRAVEL.get())
+                .put(Blocks.POWDER_SNOW, WaxedModBlocks.WAXED_POWDER_SNOW.get())
+                .put(Blocks.SOUL_SAND, WaxedModBlocks.WAXED_SOUL_SAND.get())
+                .put(Blocks.RED_CONCRETE_POWDER, WaxedModBlocks.WAXED_RED_CONCRETE_POWDER.get())
+                .put(Blocks.ORANGE_CONCRETE_POWDER, WaxedModBlocks.WAXED_ORANGE_CONCRETE_POWDER.get())
+                .put(Blocks.YELLOW_CONCRETE_POWDER, WaxedModBlocks.WAXED_YELLOW_CONCRETE_POWDER.get())
+                .put(Blocks.LIME_CONCRETE_POWDER, WaxedModBlocks.WAXED_LIME_CONCRETE_POWDER.get())
+                .put(Blocks.GREEN_CONCRETE_POWDER, WaxedModBlocks.WAXED_GREEN_CONCRETE_POWDER.get())
+                .put(Blocks.CYAN_CONCRETE_POWDER, WaxedModBlocks.WAXED_CYAN_CONCRETE_POWDER.get())
+                .put(Blocks.LIGHT_BLUE_CONCRETE_POWDER, WaxedModBlocks.WAXED_LIGHT_BLUE_CONCRETE_POWDER.get())
+                .put(Blocks.BLUE_CONCRETE_POWDER, WaxedModBlocks.WAXED_BLUE_CONCRETE_POWDER.get())
+                .put(Blocks.PURPLE_CONCRETE_POWDER, WaxedModBlocks.WAXED_PURPLE_CONCRETE_POWDER.get())
+                .put(Blocks.MAGENTA_CONCRETE_POWDER, WaxedModBlocks.WAXED_MAGENTA_CONCRETE_POWDER.get())
+                .put(Blocks.PINK_CONCRETE_POWDER, WaxedModBlocks.WAXED_PINK_CONCRETE_POWDER.get())
+                .put(Blocks.BROWN_CONCRETE_POWDER, WaxedModBlocks.WAXED_BROWN_CONCRETE_POWDER.get())
+                .put(Blocks.BLACK_CONCRETE_POWDER, WaxedModBlocks.WAXED_BLACK_CONCRETE_POWDER.get())
+                .put(Blocks.GRAY_CONCRETE_POWDER, WaxedModBlocks.WAXED_GRAY_CONCRETE_POWDER.get())
+                .put(Blocks.LIGHT_GRAY_CONCRETE_POWDER, WaxedModBlocks.WAXED_LIGHT_GRAY_CONCRETE_POWDER.get())
+                .put(Blocks.WHITE_CONCRETE_POWDER, WaxedModBlocks.WAXED_WHITE_CONCRETE_POWDER.get())
                 .build();
     });
     public static final Supplier<BiMap<Block, Block>> WAXABLES_AXE = Suppliers.memoize(() -> {
@@ -170,13 +193,13 @@ public class WaxingBlocks {
         var unwaxedBlock2 = getUnwaxedAxe(blockState.getBlock());
         var unwaxedBlock3 = getUnwaxedHoes(blockState.getBlock());
         if (itemStack.is(ItemTags.SHOVELS) && unwaxedBlock1.isPresent()) {
-            unwaxing(interactEvent ,blockPos ,itemStack ,level ,unwaxedBlock1.isPresent(), unwaxedBlock1.get().withPropertiesOf(blockState), ModSounds.SHOVEL_WAX_OFF.get());
+            unwaxing(interactEvent ,blockPos ,itemStack ,level ,unwaxedBlock1.isPresent(), unwaxedBlock1.get().withPropertiesOf(blockState), WaxedModSounds.SHOVEL_WAX_OFF.get());
             return InteractionResult.sidedSuccess(level.isClientSide);
         } else if (itemStack.is(ItemTags.AXES) && unwaxedBlock2.isPresent()) {
             unwaxing(interactEvent ,blockPos ,itemStack ,level ,unwaxedBlock2.isPresent(), unwaxedBlock2.get().withPropertiesOf(blockState), SoundEvents.AXE_WAX_OFF);
             return InteractionResult.sidedSuccess(level.isClientSide);
         } else if (itemStack.is(ItemTags.HOES) && unwaxedBlock3.isPresent()) {
-            unwaxing(interactEvent ,blockPos ,itemStack ,level ,unwaxedBlock3.isPresent(), unwaxedBlock3.get().withPropertiesOf(blockState), ModSounds.SHOVEL_WAX_OFF.get());
+            unwaxing(interactEvent ,blockPos ,itemStack ,level ,unwaxedBlock3.isPresent(), unwaxedBlock3.get().withPropertiesOf(blockState), WaxedModSounds.SHOVEL_WAX_OFF.get());
             return InteractionResult.sidedSuccess(level.isClientSide);
         } else {
             return (InteractionResult.PASS);
