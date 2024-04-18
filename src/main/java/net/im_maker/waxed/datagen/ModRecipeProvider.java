@@ -60,6 +60,17 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     protected void buildRecipes(Consumer<FinishedRecipe> pWriter) {
         oreSmelting(pWriter, EMPTY_HONEYCOMB, RecipeCategory.MISC, WaxedModBlocks.WAX_BLOCK.get(), 0.25f, 200, "wax_block");
 
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, WaxedModBlocks.SOUL_WAX_BLOCK.get(), 8)
+                .pattern("SSS")
+                .pattern("STS")
+                .pattern("SSS")
+                .define('S', WaxedModBlocks.WAX_BLOCK.get())
+                .define('T', ItemTags.SOUL_FIRE_BASE_BLOCKS)
+                .unlockedBy(getHasName(WaxedModBlocks.WAX_BLOCK.get()), has(WaxedModBlocks.WAX_BLOCK.get()))
+                .save(pWriter);
+
+
         coloredWaxBlock(WaxedModBlocks.RED_WAX_BLOCK.get(), Items.RED_DYE, pWriter);
         coloredWaxBlock(WaxedModBlocks.ORANGE_WAX_BLOCK.get(), Items.ORANGE_DYE, pWriter);
         coloredWaxBlock(WaxedModBlocks.YELLOW_WAX_BLOCK.get(), Items.YELLOW_DYE, pWriter);
@@ -95,6 +106,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         coloredWaxBlock(WaxedModBlocks.TAN_WAX_BLOCK.get(), DDItems.TAN_DYE.get(), pWriter);
 
         coloredWaxPillar(WaxedModBlocks.WAX_BLOCK.get(), WaxedModBlocks.WAX_PILLAR.get(), pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, WaxedModBlocks.SOUL_WAX_PILLAR.get(), 2)
+                .pattern("W")
+                .pattern("W")
+                .define('W', WaxedModBlocks.SOUL_WAX_BLOCK.get())
+                .unlockedBy(getHasName(WaxedModBlocks.SOUL_WAX_BLOCK.get()), has(WaxedModBlocks.SOUL_WAX_BLOCK.get()))
+                .save(pWriter);
+
         coloredWaxPillar(WaxedModBlocks.RED_WAX_BLOCK.get(), WaxedModBlocks.RED_WAX_PILLAR.get(), pWriter);
         coloredWaxPillar(WaxedModBlocks.ORANGE_WAX_BLOCK.get(), WaxedModBlocks.ORANGE_WAX_PILLAR.get(), pWriter);
         coloredWaxPillar(WaxedModBlocks.YELLOW_WAX_BLOCK.get(), WaxedModBlocks.YELLOW_WAX_PILLAR.get(), pWriter);
@@ -203,19 +222,24 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("S")
                 .pattern("W")
                 .define('S', WaxedModBlocks.WICK.get())
-                .define('W', WaxedModItems.WAX.get())
+                .define('W', WaxedModItemTags.CAN_WAX)
                 .unlockedBy(getHasName(WaxedModBlocks.WICK.get()), has(WaxedModBlocks.WICK.get()))
                 .unlockedBy(getHasName(WaxedModItems.WAX.get()), has(WaxedModItems.WAX.get()))
+                .unlockedBy(getHasName(Items.HONEYCOMB), has(Items.HONEYCOMB))
                 .save(pWriter);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Blocks.CANDLE, 4)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, WaxedModBlocks.SOUL_CANDLE.get(), 4)
                 .pattern("S")
-                .pattern("H")
+                .pattern("W")
+                .pattern("T")
                 .define('S', WaxedModBlocks.WICK.get())
-                .define('H', Items.HONEYCOMB)
+                .define('W', WaxedModItemTags.CAN_WAX)
+                .define('T', ItemTags.SOUL_FIRE_BASE_BLOCKS)
                 .unlockedBy(getHasName(WaxedModBlocks.WICK.get()), has(WaxedModBlocks.WICK.get()))
+                .unlockedBy(getHasName(WaxedModItems.WAX.get()), has(WaxedModItems.WAX.get()))
                 .unlockedBy(getHasName(Items.HONEYCOMB), has(Items.HONEYCOMB))
-                .save(pWriter, Blocks.CANDLE.asItem().toString() + "_from_" + Items.HONEYCOMB.toString());
+                .save(pWriter);
+
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, WaxedModItems.WAX.get(), 9)
                 .requires(WaxedModBlocks.WAX_BLOCK.get())

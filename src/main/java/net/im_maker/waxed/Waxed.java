@@ -2,8 +2,9 @@ package net.im_maker.waxed;
 
 import com.mojang.logging.LogUtils;
 import net.im_maker.waxed.common.block.WaxedModBlocks;
+import net.im_maker.waxed.common.particles.WaxedModParticles;
 import net.im_maker.waxed.common.item.WaxedModItems;
-import net.im_maker.waxed.common.sounds.ModSounds;
+import net.im_maker.waxed.common.sounds.WaxedModSounds;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.api.distmarker.Dist;
@@ -24,7 +25,6 @@ import java.util.function.Function;
 @Mod(Waxed.MOD_ID)
 public class Waxed {
     public static final String MOD_ID = "waxed";
-    private static final Logger LOGGER = LogUtils.getLogger();
     private static final Function<ItemLike, ItemStack> FUNCTION = ItemStack::new;
 
     public Waxed() {
@@ -32,9 +32,8 @@ public class Waxed {
 
         WaxedModItems.register(modEventBus);
         WaxedModBlocks.register(modEventBus);
-        ModSounds.register(modEventBus);
-        //modEventBus.addListener(this::commonSetup);
-
+        WaxedModSounds.register(modEventBus);
+        WaxedModParticles.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
 
@@ -60,6 +59,9 @@ public class Waxed {
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         MutableHashedLinkedMap<ItemStack, CreativeModeTab.TabVisibility> entries = event.getEntries();
+        if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
+            //addAfter(entries, Items.CANDLE, WaxedModBlocks.SOUL_CANDLE.get());
+        }
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             addAfter(entries, Items.STRING, WaxedModBlocks.WICK.get());
             addAfter(entries, Items.HONEYCOMB, WaxedModItems.WAX.get());
@@ -99,10 +101,12 @@ public class Waxed {
                     WaxedModBlocks.WAXED_HORN_CORAL_FAN.get());
         }
         if (event.getTabKey() == CreativeModeTabs.COLORED_BLOCKS) {
+            addAfter(entries, Items.CANDLE, WaxedModBlocks.SOUL_CANDLE.get());
             if (ModList.get().isLoaded("dye_depot")) {
                 event.accept(WaxedModBlocks.WAX_BLOCK);
                 addBefore(entries, Items.CANDLE,
                         WaxedModBlocks.WAX_BLOCK.get(),
+                        WaxedModBlocks.SOUL_WAX_BLOCK.get(),
                         WaxedModBlocks.WHITE_WAX_BLOCK.get(),
                         WaxedModBlocks.LIGHT_GRAY_WAX_BLOCK.get(),
                         WaxedModBlocks.GRAY_WAX_BLOCK.get(),
@@ -136,6 +140,7 @@ public class Waxed {
                         WaxedModBlocks.MAGENTA_WAX_BLOCK.get(),
                         WaxedModBlocks.PINK_WAX_BLOCK.get(),
                         WaxedModBlocks.WAX_PILLAR.get(),
+                        WaxedModBlocks.SOUL_WAX_PILLAR.get(),
                         WaxedModBlocks.WHITE_WAX_PILLAR.get(),
                         WaxedModBlocks.LIGHT_GRAY_WAX_PILLAR.get(),
                         WaxedModBlocks.GRAY_WAX_PILLAR.get(),
@@ -204,6 +209,7 @@ public class Waxed {
             } else {
                 addBefore(entries, Items.CANDLE,
                         WaxedModBlocks.WAX_BLOCK.get(),
+                        WaxedModBlocks.SOUL_WAX_BLOCK.get(),
                         WaxedModBlocks.WHITE_WAX_BLOCK.get(),
                         WaxedModBlocks.LIGHT_GRAY_WAX_BLOCK.get(),
                         WaxedModBlocks.GRAY_WAX_BLOCK.get(),
@@ -221,6 +227,7 @@ public class Waxed {
                         WaxedModBlocks.MAGENTA_WAX_BLOCK.get(),
                         WaxedModBlocks.PINK_WAX_BLOCK.get(),
                         WaxedModBlocks.WAX_PILLAR.get(),
+                        WaxedModBlocks.SOUL_WAX_PILLAR.get(),
                         WaxedModBlocks.WHITE_WAX_PILLAR.get(),
                         WaxedModBlocks.LIGHT_GRAY_WAX_PILLAR.get(),
                         WaxedModBlocks.GRAY_WAX_PILLAR.get(),

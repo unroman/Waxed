@@ -1,5 +1,6 @@
 {
   "block.waxed.wax_block": "Wax Block",
+  "block.waxed.soul_wax_block": "Soul Wax Block",
   "block.waxed.red_wax_block": "Red Wax Block",
   "block.waxed.orange_wax_block": "Orange Wax Block",
   "block.waxed.yellow_wax_block": "Yellow Wax Block",
@@ -34,6 +35,7 @@
   "block.waxed.tan_wax_block": "Tan Wax Block",
 
   "block.waxed.wax_pillar": "Wax Pillar",
+  "block.waxed.soul_wax_pillar": "Soul Wax Pillar",
   "block.waxed.red_wax_pillar": "Red Wax Pillar",
   "block.waxed.orange_wax_pillar": "Orange Wax Pillar",
   "block.waxed.yellow_wax_pillar": "Yellow Wax Pillar",
@@ -68,7 +70,9 @@
   "block.waxed.tan_wax_pillar": "Tan Wax Pillar",
 
   "block.waxed.empty_honeycomb": "Empty Honeycomb",
+  "block.waxed.soul_candle": "Soul Candle",
   "block.waxed.wick": "Wick",
+  "block.waxed.soul_wick": "Soul Wick",
 
   "block.waxed.waxed_sand": "Waxed Sand",
   "block.waxed.waxed_red_sand": "Waxed Red Sand",

@@ -1,8 +1,10 @@
 package net.im_maker.waxed.common.block;
 
 import net.im_maker.waxed.Waxed;
-import net.im_maker.waxed.common.block.custom.CandleStringBlock;
+import net.im_maker.waxed.common.block.custom.SoulCandleBlock;
+import net.im_maker.waxed.common.block.custom.SoulCandleCakeBlock;
 import net.im_maker.waxed.common.block.custom.WaxPillarBlock;
+import net.im_maker.waxed.common.block.custom.WickBlock;
 import net.im_maker.waxed.common.item.WaxedModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.BlockItem;
@@ -12,6 +14,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
@@ -21,14 +24,20 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.function.Supplier;
+import java.util.function.ToIntFunction;
 
 public class WaxedModBlocks {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, Waxed.MOD_ID);
+    //Stuff
     public static final RegistryObject<Block> EMPTY_HONEYCOMB = registerBlock("empty_honeycomb", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).strength(0.6f).sound(SoundType.CORAL_BLOCK)));
-    public static final RegistryObject<Block> WICK = registerBlock("wick", () -> new CandleStringBlock(1, BlockBehaviour.Properties.of().noCollission().lightLevel(CandleStringBlock.LIGHT_EMISSION).strength(0.1f).sound(SoundType.WOOL).pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> WICK = registerBlock("wick", () -> new WickBlock(1, BlockBehaviour.Properties.of().noCollission().lightLevel(WickBlock.LIGHT_EMISSION).strength(0.1f).sound(SoundType.WOOL).pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> SOUL_WICK = BLOCKS.register("soul_wick", () -> new WickBlock(2, BlockBehaviour.Properties.of().noCollission().lightLevel(WickBlock.SOUL_LIGHT_EMISSION).strength(0.1f).sound(SoundType.WOOL).pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> SOUL_CANDLE = registerBlock("soul_candle", () -> new SoulCandleBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).noOcclusion().strength(0.1F).sound(SoundType.CANDLE).lightLevel(CandleBlock.LIGHT_EMISSION).pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> SOUL_CANDLE_CAKE = BLOCKS.register("soul_candle_cake", () -> new SoulCandleCakeBlock(SOUL_CANDLE.get(), BlockBehaviour.Properties.copy(Blocks.CAKE).lightLevel(litBlockEmission(3))));
     //Wax Blocks
     public static final RegistryObject<Block> WAX_BLOCK = registerBlock("wax_block", () -> wax_block(MapColor.SAND));
+    public static final RegistryObject<Block> SOUL_WAX_BLOCK = registerBlock("soul_wax_block", () -> wax_block(MapColor.COLOR_BROWN));
     public static final RegistryObject<Block> RED_WAX_BLOCK = registerBlock("red_wax_block", () -> wax_block(MapColor.COLOR_RED));
     public static final RegistryObject<Block> ORANGE_WAX_BLOCK = registerBlock("orange_wax_block", () -> wax_block(MapColor.COLOR_ORANGE));
     public static final RegistryObject<Block> YELLOW_WAX_BLOCK = registerBlock("yellow_wax_block", () -> wax_block(MapColor.COLOR_YELLOW));
@@ -64,6 +73,7 @@ public class WaxedModBlocks {
     public static final RegistryObject<Block> TAN_WAX_BLOCK = registerBlock("tan_wax_block", () -> wax_block(MapColor.DIRT));
     //Wax Pillars
     public static final RegistryObject<Block> WAX_PILLAR = registerBlock("wax_pillar", () -> wax_pillar(MapColor.SAND));
+    public static final RegistryObject<Block> SOUL_WAX_PILLAR = registerBlock("soul_wax_pillar", () -> wax_pillar(MapColor.COLOR_BROWN));
     public static final RegistryObject<Block> RED_WAX_PILLAR = registerBlock("red_wax_pillar", () -> wax_pillar(MapColor.COLOR_RED));
     public static final RegistryObject<Block> ORANGE_WAX_PILLAR = registerBlock("orange_wax_pillar", () -> wax_pillar(MapColor.COLOR_ORANGE));
     public static final RegistryObject<Block> YELLOW_WAX_PILLAR = registerBlock("yellow_wax_pillar", () -> wax_pillar(MapColor.COLOR_YELLOW));
@@ -183,6 +193,12 @@ public class WaxedModBlocks {
 
     public static <T extends Block> RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block) {
         return WaxedModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
+    }
+
+    private static ToIntFunction<BlockState> litBlockEmission(int pLightValue) {
+        return (blockState) -> {
+            return blockState.getValue(BlockStateProperties.LIT) ? pLightValue : 0;
+        };
     }
 
     public static void register(IEventBus eventBus) {

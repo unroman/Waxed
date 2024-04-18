@@ -1,15 +1,23 @@
 package net.im_maker.waxed.datagen.loot;
 
 import net.im_maker.waxed.common.block.WaxedModBlocks;
+import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.CandleBlock;
+import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraftforge.registries.RegistryObject;
 
+import java.util.List;
 import java.util.Set;
 
 public class ModBlockLootTables extends BlockLootSubProvider {
@@ -23,8 +31,14 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
         this.dropSelf(WaxedModBlocks.EMPTY_HONEYCOMB.get());
         this.dropSelf(WaxedModBlocks.WICK.get());
+        this.add(WaxedModBlocks.SOUL_WICK.get(), createItemDrops(WaxedModBlocks.SOUL_WICK.get(), WaxedModBlocks.WICK.get().asItem()));
+        this.add(WaxedModBlocks.SOUL_CANDLE.get(), (block) -> {
+            return this.createCandleDrops(block);
+        });
+        this.add(WaxedModBlocks.SOUL_CANDLE_CAKE.get(), createCandleCakeDrops(WaxedModBlocks.SOUL_CANDLE.get()));
 
         this.dropSelf(WaxedModBlocks.WAX_BLOCK.get());
+        this.dropSelf(WaxedModBlocks.SOUL_WAX_BLOCK.get());
         this.dropSelf(WaxedModBlocks.WHITE_WAX_BLOCK.get());
         this.dropSelf(WaxedModBlocks.LIGHT_GRAY_WAX_BLOCK.get());
         this.dropSelf(WaxedModBlocks.GRAY_WAX_BLOCK.get());
@@ -59,6 +73,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(WaxedModBlocks.PINK_WAX_BLOCK.get());
 
         this.dropSelf(WaxedModBlocks.WAX_PILLAR.get());
+        this.dropSelf(WaxedModBlocks.SOUL_WAX_PILLAR.get());
         this.dropSelf(WaxedModBlocks.WHITE_WAX_PILLAR.get());
         this.dropSelf(WaxedModBlocks.LIGHT_GRAY_WAX_PILLAR.get());
         this.dropSelf(WaxedModBlocks.GRAY_WAX_PILLAR.get());
@@ -152,14 +167,20 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(WaxedModBlocks.WAXED_FIRE_CORAL_FAN.get());
         this.dropSelf(WaxedModBlocks.WAXED_HORN_CORAL_FAN.get());
 
+    }
 
-
-
-
+    protected LootTable.Builder createCandleDrops(Block pCandleBlock) {
+        return LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(this.applyExplosionDecay(pCandleBlock, LootItem.lootTableItem(pCandleBlock).apply(List.of(2, 3, 4), (integer) -> {
+            return SetItemCountFunction.setCount(ConstantValue.exactly((float)integer.intValue())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pCandleBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CandleBlock.CANDLES, integer)));
+        }))));
     }
 
     protected LootTable.Builder createItemDrops(Block pBlock, Item item) {
         return createSilkTouchDispatchTable(pBlock, this.applyExplosionDecay(pBlock, LootItem.lootTableItem(item)));
+    }
+
+    protected static LootTable.Builder createCandleCakeDrops(Block pCandleCakeBlock) {
+        return LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(pCandleCakeBlock)));
     }
 
     protected LootTable.Builder createItemDropsFromShears(Block pBlock, Item item) {

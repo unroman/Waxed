@@ -1,0 +1,10 @@
+{
+  "parent": "minecraft:block/template_cake_with_candle",
+  "textures": {
+    "bottom": "waxed:block/cake_bottom",
+    "candle": "waxed:block/soul_candle_lit",
+    "particle": "waxed:block/cake_side",
+    "side": "waxed:block/cake_side",
+    "top": "waxed:block/cake_top"
+  }
+}

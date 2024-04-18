@@ -2,10 +2,10 @@ package net.im_maker.waxed.datagen;
 
 import net.im_maker.waxed.Waxed;
 import net.im_maker.waxed.common.block.WaxedModBlocks;
+import net.im_maker.waxed.common.tags.WaxedModBlockTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -20,8 +20,60 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
+
+        this.tag(BlockTags.CANDLES).add(
+                WaxedModBlocks.SOUL_CANDLE.get()
+        );
+
+        this.tag(BlockTags.CANDLE_CAKES).add(
+                WaxedModBlocks.SOUL_CANDLE_CAKE.get()
+        );
+
+        this.tag(BlockTags.PIGLIN_REPELLENTS).add(
+                WaxedModBlocks.SOUL_CANDLE.get(),
+                WaxedModBlocks.SOUL_CANDLE_CAKE.get()
+        );
+
+        this.tag(WaxedModBlockTags.WAX_PILLARS).add(
+                WaxedModBlocks.WAX_PILLAR.get(),
+                WaxedModBlocks.SOUL_WAX_PILLAR.get(),
+                WaxedModBlocks.WHITE_WAX_PILLAR.get(),
+                WaxedModBlocks.LIGHT_GRAY_WAX_PILLAR.get(),
+                WaxedModBlocks.GRAY_WAX_PILLAR.get(),
+                WaxedModBlocks.BLACK_WAX_PILLAR.get(),
+                WaxedModBlocks.BROWN_WAX_PILLAR.get(),
+                WaxedModBlocks.MAROON_WAX_PILLAR.get(),
+                WaxedModBlocks.ROSE_WAX_PILLAR.get(),
+                WaxedModBlocks.RED_WAX_PILLAR.get(),
+                WaxedModBlocks.CORAL_WAX_PILLAR.get(),
+                WaxedModBlocks.GINGER_WAX_PILLAR.get(),
+                WaxedModBlocks.ORANGE_WAX_PILLAR.get(),
+                WaxedModBlocks.TAN_WAX_PILLAR.get(),
+                WaxedModBlocks.BEIGE_WAX_PILLAR.get(),
+                WaxedModBlocks.YELLOW_WAX_PILLAR.get(),
+                WaxedModBlocks.AMBER_WAX_PILLAR.get(),
+                WaxedModBlocks.OLIVE_WAX_PILLAR.get(),
+                WaxedModBlocks.LIME_WAX_PILLAR.get(),
+                WaxedModBlocks.FOREST_WAX_PILLAR.get(),
+                WaxedModBlocks.GREEN_WAX_PILLAR.get(),
+                WaxedModBlocks.VERDANT_WAX_PILLAR.get(),
+                WaxedModBlocks.TEAL_WAX_PILLAR.get(),
+                WaxedModBlocks.CYAN_WAX_PILLAR.get(),
+                WaxedModBlocks.MINT_WAX_PILLAR.get(),
+                WaxedModBlocks.AQUA_WAX_PILLAR.get(),
+                WaxedModBlocks.LIGHT_BLUE_WAX_PILLAR.get(),
+                WaxedModBlocks.BLUE_WAX_PILLAR.get(),
+                WaxedModBlocks.SLATE_WAX_PILLAR.get(),
+                WaxedModBlocks.NAVY_WAX_PILLAR.get(),
+                WaxedModBlocks.INDIGO_WAX_PILLAR.get(),
+                WaxedModBlocks.PURPLE_WAX_PILLAR.get(),
+                WaxedModBlocks.MAGENTA_WAX_PILLAR.get(),
+                WaxedModBlocks.PINK_WAX_PILLAR.get()
+        );
+
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
                 WaxedModBlocks.WAX_BLOCK.get(),
+                WaxedModBlocks.SOUL_WAX_BLOCK.get(),
                 WaxedModBlocks.WHITE_WAX_BLOCK.get(),
                 WaxedModBlocks.LIGHT_GRAY_WAX_BLOCK.get(),
                 WaxedModBlocks.GRAY_WAX_BLOCK.get(),
@@ -55,6 +107,7 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 WaxedModBlocks.MAGENTA_WAX_BLOCK.get(),
                 WaxedModBlocks.PINK_WAX_BLOCK.get(),
                 WaxedModBlocks.WAX_PILLAR.get(),
+                WaxedModBlocks.SOUL_WAX_PILLAR.get(),
                 WaxedModBlocks.WHITE_WAX_PILLAR.get(),
                 WaxedModBlocks.LIGHT_GRAY_WAX_PILLAR.get(),
                 WaxedModBlocks.GRAY_WAX_PILLAR.get(),
@@ -96,16 +149,15 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 WaxedModBlocks.WAXED_FIRE_CORAL_BLOCK.get(),
                 WaxedModBlocks.WAXED_HORN_CORAL_BLOCK.get()
         );
-
-        //this.tag(Blocks.SAND.defaultBlockState().getTags().).add(ModBlocks.WAXED_SAND.get());
-
-
+        //It does not work LOL :P
+        /*
         for (int i = 0; i < Blocks.SAND.defaultBlockState().getTags().toList().size(); i++) {
             this.tag( WaxedModBlocks.WAX_PILLAR.get().defaultBlockState().getTags().toList().get(i)).add(WaxedModBlocks.WAXED_SAND.get());
         }
-
+         */
         this.tag(BlockTags.MINEABLE_WITH_SHOVEL).add(
                 WaxedModBlocks.WAX_BLOCK.get(),
+                WaxedModBlocks.SOUL_WAX_BLOCK.get(),
                 WaxedModBlocks.WHITE_WAX_BLOCK.get(),
                 WaxedModBlocks.LIGHT_GRAY_WAX_BLOCK.get(),
                 WaxedModBlocks.GRAY_WAX_BLOCK.get(),
@@ -139,6 +191,7 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 WaxedModBlocks.MAGENTA_WAX_BLOCK.get(),
                 WaxedModBlocks.PINK_WAX_BLOCK.get(),
                 WaxedModBlocks.WAX_PILLAR.get(),
+                WaxedModBlocks.SOUL_WAX_PILLAR.get(),
                 WaxedModBlocks.WHITE_WAX_PILLAR.get(),
                 WaxedModBlocks.LIGHT_GRAY_WAX_PILLAR.get(),
                 WaxedModBlocks.GRAY_WAX_PILLAR.get(),
@@ -256,11 +309,18 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         );
 
         this.tag(BlockTags.SOUL_SPEED_BLOCKS).add(
-                WaxedModBlocks.WAXED_SOUL_SAND.get()
+                WaxedModBlocks.WAXED_SOUL_SAND.get(),
+                WaxedModBlocks.SOUL_WAX_BLOCK.get(),
+                WaxedModBlocks.SOUL_WAX_PILLAR.get(),
+                WaxedModBlocks.SOUL_CANDLE.get(),
+                WaxedModBlocks.SOUL_CANDLE_CAKE.get()
         );
 
         this.tag(BlockTags.SOUL_FIRE_BASE_BLOCKS).add(
-                WaxedModBlocks.WAXED_SOUL_SAND.get()
+                WaxedModBlocks.WAXED_SOUL_SAND.get(),
+                WaxedModBlocks.SOUL_WAX_BLOCK.get(),
+                WaxedModBlocks.SOUL_WAX_PILLAR.get(),
+                WaxedModBlocks.SOUL_WICK.get()
         );
 
         this.tag(BlockTags.WITHER_SUMMON_BASE_BLOCKS).add(

@@ -2,12 +2,18 @@ package net.im_maker.waxed.datagen;
 
 import net.im_maker.waxed.Waxed;
 import net.im_maker.waxed.common.block.WaxedModBlocks;
+import net.im_maker.waxed.common.block.block_values.WaxedModBlockStateProperties;
+import net.im_maker.waxed.common.item.WaxedModItems;
+import net.im_maker.waxed.common.tags.WaxedModBlockTags;
+import net.im_maker.waxed.common.tags.WaxedModItemTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
@@ -22,6 +28,17 @@ public class ModItemTagGenerator extends ItemTagsProvider {
     }
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
+
+        this.copy(WaxedModBlockTags.WAX_PILLARS, WaxedModItemTags.WAX_PILLARS);
+
+        this.tag(WaxedModItemTags.CAN_WAX).add(
+                WaxedModItems.WAX.get(),
+                Items.HONEYCOMB
+        );
+
+        this.tag(ItemTags.CANDLES).add(
+                WaxedModBlocks.SOUL_CANDLE.get().asItem()
+        );
 
         this.tag(Tags.Items.GRAVEL).add(
                 WaxedModBlocks.WAXED_GRAVEL.get().asItem()
