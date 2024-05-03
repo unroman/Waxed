@@ -64,8 +64,6 @@ minecraft {
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
             property 'forge.enabledGameTestNamespaces', 'waxed'
 
-            arg "-mixin.config=dye_depot.mixins.json"
-
             mods {
                 waxed {
                     source sourceSets.main
@@ -116,7 +114,7 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
-            args '--mod', 'waxed', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+            args '--mod', 'waxed', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/'), "--existing-mod", "quark", "--existing-mod", "supplementaries", "--existing-mod", "iwannaskate"
 
             mods {
                 waxed {
@@ -142,34 +140,29 @@ repositories {
     }
 }
 
+//apply plugin: 'net.minecraftforge.gradle'
+
 dependencies {
     // Specify the version of Minecraft to use. If this is any group other than 'net.minecraft', it is assumed
     // that the dep is a ForgeGradle 'patcher' dependency, and its patches will be applied.
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
     minecraft 'net.minecraftforge:forge:1.20.1-47.2.0'
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
     compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"))
     compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}"))
     runtimeOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}"))
-
+    implementation fg.deobf("maven.modrinth:zeta:1.20.1-1.0-16")
+    implementation fg.deobf("maven.modrinth:quark:1.20.1-4.0-441")
+    //implementation fg.deobf("maven.modrinth:copperative:ydByddwE")
+    implementation fg.deobf("maven.modrinth:blueprint:7.1.0")
+    implementation fg.deobf("maven.modrinth:buzzier-bees:6.0.0")
+    implementation fg.deobf("maven.modrinth:upgrade-aquatic:6.0.0")
+    implementation fg.deobf("maven.modrinth:supplementaries:1.20-2.8.10")
+    implementation fg.deobf("maven.modrinth:supplementaries-squared:8PXoizc7")
+    implementation fg.deobf("maven.modrinth:moonlight:forge_1.20-2.11.12")
+    implementation fg.deobf("maven.modrinth:citadel:2.5.4")
+    implementation fg.deobf("maven.modrinth:i-wanna-skate:1.2.0")
     implementation fg.deobf("maven.modrinth:dye-depot:1.0.0-forge")
-    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
-
-
-    //modCompileOnly "maven.modrinth:dye-depot:mc1.20.1-1.0.0-forge"
-
-
-
-    // Real mod deobf dependency examples - these get remapped to your current mappings
-    // compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api") // Adds JEI API as a compile dependency
-    // runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}") // Adds the full JEI mod as a runtime dependency
-    // implementation fg.deobf("com.tterrag.registrate:Registrate:MC${mc_version}-${registrate_version}") // Adds registrate as a dependency
-
-    // Examples using mod jars from ./libs
-    // implementation fg.deobf("blank:coolmod-${mc_version}:${coolmod_version}")
-
-    // For more info...
-    // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
-    // http://www.gradle.org/docs/current/userguide/dependency_management.html
 }
 
 // Example for how to get properties into the manifest for reading at runtime.
@@ -177,11 +170,11 @@ jar {
     manifest {
         attributes([
                 "Specification-Title"     : "waxed",
-                "Specification-Vendor"    : "waxed_sareus",
+                "Specification-Vendor"    : "waxedsareus",
                 "Specification-Version"   : "1", // We are version 1 of ourselves
                 "Implementation-Title"    : project.name,
                 "Implementation-Version"  : project.jar.archiveVersion,
-                "Implementation-Vendor"   : "waxed_sareus",
+                "Implementation-Vendor"   : "waxedsareus",
                 "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
