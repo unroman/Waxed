@@ -11,8 +11,12 @@ import net.minecraft.world.level.block.CandleBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 
-public class SoulCandleBlock extends CandleBlock {
+import java.util.function.ToIntFunction;
 
+public class SoulCandleBlock extends CandleBlock {
+    public static final ToIntFunction<BlockState> LIGHT_EMISSION = (blockState) -> {
+        return blockState.getValue(LIT) ? 2 * blockState.getValue(CANDLES) : 0;
+    };
     public SoulCandleBlock(Properties pProperties) {
         super(pProperties);
     }
