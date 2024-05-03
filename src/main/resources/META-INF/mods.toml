@@ -10,16 +10,61 @@ authors="Im_Maker"
 credits=""
 description='''
 Adds wax blocks, wax pillars and now you can wax/unwax some blocks like copper!
+Twitter/X:I_AmMaker
 '''
-[[dependencies.wax_it]]
-    modId="forge"
-    mandatory=true
-    versionRange="[43,)"
-    ordering="NONE"
-    side="BOTH"
-[[dependencies.wax_it]]
-    modId="minecraft"
-    mandatory=true
-    versionRange="[1.20,1.20.2)"
-    ordering="NONE"
-    side="BOTH"
+
+[[dependencies.waxed]]
+modId="forge"
+mandatory=true
+versionRange="[43,)"
+ordering="NONE"
+side="BOTH"
+[[dependencies.waxed]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20,1.20.2)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.waxed]]
+modId="moonlight"
+mandatory=false
+versionRange="*"
+ordering="AFTER"
+side="BOTH"
+[[dependencies.waxed]]
+modId="supplementaries"
+mandatory=false
+versionRange="*"
+ordering="AFTER"
+side="BOTH"
+[[dependencies.waxed]]
+modId="supplementaries_squared"
+mandatory=false
+versionRange="*"
+ordering="AFTER"
+side="BOTH"
+[[dependencies.waxed]]
+modId="quark"
+mandatory=false
+versionRange="*"
+ordering="AFTER"
+side="BOTH"
+[[dependencies.waxed]]
+modId="buzzy_bees"
+mandatory=false
+versionRange="*"
+ordering="AFTER"
+side="BOTH"
+[[dependencies.waxed]]
+modId="copperative"
+mandatory=false
+versionRange="*"
+ordering="AFTER"
+side="BOTH"
+[[dependencies.waxed]]
+modId="iwannaskate"
+mandatory=false
+versionRange="*"
+ordering="AFTER"
+side="BOTH"
