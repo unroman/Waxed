@@ -58,18 +58,13 @@ public class WickBlock extends Block {
         return !pState.getValue(LIT);
     }
 
-    @Override
-    public void onProjectileHit(Level pLevel, BlockState pState, BlockHitResult pHit, Projectile pProjectile) {
-        if (!pLevel.isClientSide && pProjectile.isOnFire() && this.canBeLit(pState)) {
-            setLit(pLevel, pState, pHit.getBlockPos(), true);
-        }
-
-    }
-
     public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
         if (pState.getValue(LIT) && pEntity instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity)pEntity)) {
             pEntity.hurt(pLevel.damageSources().inFire(), (float)this.fireDamage);
             pEntity.setSecondsOnFire(2);
+        }
+        if (!pLevel.isClientSide && pEntity instanceof Projectile && pEntity.isOnFire() && this.canBeLit(pState)) {
+            setLit(pLevel, pState, pPos, true);
         }
         super.entityInside(pState, pLevel, pPos, pEntity);
     }
