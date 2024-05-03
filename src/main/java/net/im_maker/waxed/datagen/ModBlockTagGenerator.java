@@ -3,6 +3,7 @@ package net.im_maker.waxed.datagen;
 import net.im_maker.waxed.Waxed;
 import net.im_maker.waxed.common.block.WaxedModBlocks;
 import net.im_maker.waxed.common.tags.WaxedModBlockTags;
+import net.mehvahdjukaar.supplementaries.reg.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
@@ -31,7 +32,8 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
 
         this.tag(BlockTags.PIGLIN_REPELLENTS).add(
                 WaxedModBlocks.SOUL_CANDLE.get(),
-                WaxedModBlocks.SOUL_CANDLE_CAKE.get()
+                WaxedModBlocks.SOUL_CANDLE_CAKE.get(),
+                WaxedModBlocks.SOUL_CANDLE_HOLDER.get()
         );
 
         this.tag(WaxedModBlockTags.WAX_PILLARS).add(
@@ -149,7 +151,7 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 WaxedModBlocks.WAXED_FIRE_CORAL_BLOCK.get(),
                 WaxedModBlocks.WAXED_HORN_CORAL_BLOCK.get()
         );
-        //It does not work LOL :P
+        //It doesn't work LOL :P
         /*
         for (int i = 0; i < Blocks.SAND.defaultBlockState().getTags().toList().size(); i++) {
             this.tag( WaxedModBlocks.WAX_PILLAR.get().defaultBlockState().getTags().toList().get(i)).add(WaxedModBlocks.WAXED_SAND.get());

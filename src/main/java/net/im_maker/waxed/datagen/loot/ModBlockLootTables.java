@@ -27,12 +27,16 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
     @Override
     protected void generate() {
-
-
         this.dropSelf(WaxedModBlocks.EMPTY_HONEYCOMB.get());
         this.dropSelf(WaxedModBlocks.WICK.get());
         this.add(WaxedModBlocks.SOUL_WICK.get(), createItemDrops(WaxedModBlocks.SOUL_WICK.get(), WaxedModBlocks.WICK.get().asItem()));
         this.add(WaxedModBlocks.SOUL_CANDLE.get(), (block) -> {
+            return this.createCandleDrops(block);
+        });
+        this.add(WaxedModBlocks.SOUL_CANDLE_HOLDER.get(), (block) -> {
+            return this.createCandleDrops(block);
+        });
+        this.add(WaxedModBlocks.GOLD_SOUL_CANDLE_HOLDER.get(), (block) -> {
             return this.createCandleDrops(block);
         });
         this.add(WaxedModBlocks.SOUL_CANDLE_CAKE.get(), createCandleCakeDrops(WaxedModBlocks.SOUL_CANDLE.get()));
@@ -149,8 +153,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(WaxedModBlocks.WAXED_MAGMA_BLOCK.get());
         this.dropSelf(WaxedModBlocks.WAXED_SOUL_SAND.get());
         this.dropSelf(WaxedModBlocks.WAXED_SPONGE.get());
-        this.add(WaxedModBlocks.WAXED_COBWEB.get(),
-                block -> createItemDropsFromShears(WaxedModBlocks.WAXED_COBWEB.get(), Items.STRING));
+        this.add(WaxedModBlocks.WAXED_COBWEB.get(), block -> createItemDropsFromShears(WaxedModBlocks.WAXED_COBWEB.get(), Items.STRING));
         this.dropSelf(WaxedModBlocks.WAXED_TUBE_CORAL_BLOCK.get());
         this.dropSelf(WaxedModBlocks.WAXED_BRAIN_CORAL_BLOCK.get());
         this.dropSelf(WaxedModBlocks.WAXED_BUBBLE_CORAL_BLOCK.get());
@@ -166,6 +169,56 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(WaxedModBlocks.WAXED_BUBBLE_CORAL_FAN.get());
         this.dropSelf(WaxedModBlocks.WAXED_FIRE_CORAL_FAN.get());
         this.dropSelf(WaxedModBlocks.WAXED_HORN_CORAL_FAN.get());
+
+        this.dropSelf(WaxedModBlocks.WAXED_ACAN_CORAL_BLOCK.get());
+        this.dropSelf(WaxedModBlocks.WAXED_ACAN_CORAL.get());
+        this.dropSelf(WaxedModBlocks.WAXED_ACAN_CORAL_FAN.get());
+
+        this.dropSelf(WaxedModBlocks.WAXED_FINGER_CORAL_BLOCK.get());
+        this.dropSelf(WaxedModBlocks.WAXED_FINGER_CORAL.get());
+        this.dropSelf(WaxedModBlocks.WAXED_FINGER_CORAL_FAN.get());
+
+        this.dropSelf(WaxedModBlocks.WAXED_STAR_CORAL_BLOCK.get());
+        this.dropSelf(WaxedModBlocks.WAXED_STAR_CORAL.get());
+        this.dropSelf(WaxedModBlocks.WAXED_STAR_CORAL_FAN.get());
+
+        this.dropSelf(WaxedModBlocks.WAXED_MOSS_CORAL_BLOCK.get());
+        this.dropSelf(WaxedModBlocks.WAXED_MOSS_CORAL.get());
+        this.dropSelf(WaxedModBlocks.WAXED_MOSS_CORAL_FAN.get());
+
+        this.dropSelf(WaxedModBlocks.WAXED_PETAL_CORAL_BLOCK.get());
+        this.dropSelf(WaxedModBlocks.WAXED_PETAL_CORAL.get());
+        this.dropSelf(WaxedModBlocks.WAXED_PETAL_CORAL_FAN.get());
+
+        this.dropSelf(WaxedModBlocks.WAXED_BRANCH_CORAL_BLOCK.get());
+        this.dropSelf(WaxedModBlocks.WAXED_BRANCH_CORAL.get());
+        this.dropSelf(WaxedModBlocks.WAXED_BRANCH_CORAL_FAN.get());
+
+        this.dropSelf(WaxedModBlocks.WAXED_ROCK_CORAL_BLOCK.get());
+        this.dropSelf(WaxedModBlocks.WAXED_ROCK_CORAL.get());
+        this.dropSelf(WaxedModBlocks.WAXED_ROCK_CORAL_FAN.get());
+
+        this.dropSelf(WaxedModBlocks.WAXED_PILLOW_CORAL_BLOCK.get());
+        this.dropSelf(WaxedModBlocks.WAXED_PILLOW_CORAL.get());
+        this.dropSelf(WaxedModBlocks.WAXED_PILLOW_CORAL_FAN.get());
+
+        this.dropSelf(WaxedModBlocks.WAXED_SILK_CORAL_BLOCK.get());
+        this.dropSelf(WaxedModBlocks.WAXED_SILK_CORAL.get());
+        this.dropSelf(WaxedModBlocks.WAXED_SILK_CORAL_FAN.get());
+
+        this.dropSelf(WaxedModBlocks.WAXED_CHROME_CORAL_BLOCK.get());
+        this.dropSelf(WaxedModBlocks.WAXED_CHROME_CORAL.get());
+        this.dropSelf(WaxedModBlocks.WAXED_CHROME_CORAL_FAN.get());
+
+        this.dropSelf(WaxedModBlocks.WAXED_PRISMARINE_CORAL_BLOCK.get());
+        this.dropSelf(WaxedModBlocks.WAXED_PRISMARINE_CORAL.get());
+        this.dropSelf(WaxedModBlocks.WAXED_PRISMARINE_CORAL_FAN.get());
+        this.dropSelf(WaxedModBlocks.WAXED_PRISMARINE_CORAL_SHOWER.get());
+
+        this.dropSelf(WaxedModBlocks.WAXED_FODDER.get());
+        this.dropSelf(WaxedModBlocks.WAXED_SUGAR_CUBE.get());
+        this.dropSelf(WaxedModBlocks.WAXED_SOAP_BLOCK.get());
+        this.dropSelf(WaxedModBlocks.WAXED_FEATHER_BLOCK.get());
 
     }
 
