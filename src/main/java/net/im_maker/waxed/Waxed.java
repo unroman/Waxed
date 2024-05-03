@@ -1,10 +1,14 @@
 package net.im_maker.waxed;
 
-import com.mojang.logging.LogUtils;
+import com.teamabnormals.upgrade_aquatic.core.registry.UABlocks;
 import net.im_maker.waxed.common.block.WaxedModBlocks;
 import net.im_maker.waxed.common.particles.WaxedModParticles;
 import net.im_maker.waxed.common.item.WaxedModItems;
 import net.im_maker.waxed.common.sounds.WaxedModSounds;
+import net.mehvahdjukaar.supplementaries.reg.ModRegistry;
+import net.mehvahdjukaar.suppsquared.SuppSquared;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.api.distmarker.Dist;
@@ -18,7 +22,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.slf4j.Logger;
 
 import java.util.function.Function;
 
@@ -38,10 +41,13 @@ public class Waxed {
         MinecraftForge.EVENT_BUS.register(this);
 
         modEventBus.addListener(this::addCreative);
+        modEventBus.addListener(this::commonSetup);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-
+        RenderType cutoutRenderType = RenderType.cutout();
+        ItemBlockRenderTypes.setRenderLayer(WaxedModBlocks.SOUL_CANDLE_HOLDER.get(), cutoutRenderType);
+        ItemBlockRenderTypes.setRenderLayer(WaxedModBlocks.GOLD_SOUL_CANDLE_HOLDER.get(), cutoutRenderType);
     }
 
     private static void addAfter(MutableHashedLinkedMap<ItemStack, CreativeModeTab.TabVisibility> map, ItemLike after, ItemLike... blocks) {
@@ -59,46 +65,134 @@ public class Waxed {
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         MutableHashedLinkedMap<ItemStack, CreativeModeTab.TabVisibility> entries = event.getEntries();
+        if (ModList.get().isLoaded("supplementaries")) {
+            if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
+                addBefore(entries, ModRegistry.CANDLE_HOLDERS.get(DyeColor.WHITE).get(), WaxedModBlocks.SOUL_CANDLE_HOLDER.get());
+            }
+            if (event.getTabKey() == CreativeModeTabs.COLORED_BLOCKS) {
+                addBefore(entries, ModRegistry.CANDLE_HOLDERS.get(DyeColor.WHITE).get(), WaxedModBlocks.SOUL_CANDLE_HOLDER.get());
+            }
+        }
+        if (ModList.get().isLoaded("suppsquared")) {
+            if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
+                addBefore(entries, SuppSquared.GOLDEN_CANDLE_HOLDERS.get(DyeColor.WHITE).get(), WaxedModBlocks.GOLD_SOUL_CANDLE_HOLDER.get());
+            }
+            if (event.getTabKey() == CreativeModeTabs.COLORED_BLOCKS) {
+                addBefore(entries, SuppSquared.GOLDEN_CANDLE_HOLDERS.get(DyeColor.WHITE).get(), WaxedModBlocks.GOLD_SOUL_CANDLE_HOLDER.get());
+            }
+        }
         if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
-            //addAfter(entries, Items.CANDLE, WaxedModBlocks.SOUL_CANDLE.get());
+            addAfter(entries, Items.CANDLE, WaxedModBlocks.SOUL_CANDLE.get());
         }
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             addAfter(entries, Items.STRING, WaxedModBlocks.WICK.get());
             addAfter(entries, Items.HONEYCOMB, WaxedModItems.WAX.get());
         }
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
-            addAfter(entries, Items.WAXED_OXIDIZED_CUT_COPPER_SLAB,
-                    WaxedModBlocks.WAXED_SAND.get(),
-                    WaxedModBlocks.WAXED_RED_SAND.get(),
-                    WaxedModBlocks.WAXED_GRAVEL.get(),
-                    WaxedModBlocks.WAXED_POWDER_SNOW.get(),
-                    WaxedModBlocks.WAXED_SOUL_SAND.get(),
-                    WaxedModBlocks.WAXED_MAGMA_BLOCK.get(),
-                    WaxedModBlocks.WAXED_PRISMARINE.get(),
-                    WaxedModBlocks.WAXED_SPONGE.get(),
-                    WaxedModBlocks.WAXED_REDSTONE_BLOCK.get());
+            if (ModList.get().isLoaded("supplementaries")){
+                addAfter(entries, Items.WAXED_OXIDIZED_CUT_COPPER_SLAB,
+                        WaxedModBlocks.WAXED_SAND.get(),
+                        WaxedModBlocks.WAXED_RED_SAND.get(),
+                        WaxedModBlocks.WAXED_GRAVEL.get(),
+                        WaxedModBlocks.WAXED_POWDER_SNOW.get(),
+                        WaxedModBlocks.WAXED_SOUL_SAND.get(),
+                        WaxedModBlocks.WAXED_MAGMA_BLOCK.get(),
+                        WaxedModBlocks.WAXED_PRISMARINE.get(),
+                        WaxedModBlocks.WAXED_SPONGE.get(),
+                        WaxedModBlocks.WAXED_REDSTONE_BLOCK.get(),
+                        WaxedModBlocks.WAXED_SOAP_BLOCK.get(),
+                        WaxedModBlocks.WAXED_FEATHER_BLOCK.get(),
+                        WaxedModBlocks.WAXED_SUGAR_CUBE.get(),
+                        WaxedModBlocks.WAXED_FODDER.get());
+            } else {
+                addAfter(entries, Items.WAXED_OXIDIZED_CUT_COPPER_SLAB,
+                        WaxedModBlocks.WAXED_SAND.get(),
+                        WaxedModBlocks.WAXED_RED_SAND.get(),
+                        WaxedModBlocks.WAXED_GRAVEL.get(),
+                        WaxedModBlocks.WAXED_POWDER_SNOW.get(),
+                        WaxedModBlocks.WAXED_SOUL_SAND.get(),
+                        WaxedModBlocks.WAXED_MAGMA_BLOCK.get(),
+                        WaxedModBlocks.WAXED_PRISMARINE.get(),
+                        WaxedModBlocks.WAXED_SPONGE.get(),
+                        WaxedModBlocks.WAXED_REDSTONE_BLOCK.get());
+            }
         }
         if (event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS) {
             addAfter(entries, Items.HONEYCOMB_BLOCK, WaxedModBlocks.EMPTY_HONEYCOMB.get());
             //addAfter(entries, Items.COBWEB, WaxedBlocks.WAXED_COBWEB.get());
-            addAfter(entries, Items.HORN_CORAL_BLOCK,
-                    WaxedModBlocks.WAXED_TUBE_CORAL_BLOCK.get(),
-                    WaxedModBlocks.WAXED_BRAIN_CORAL_BLOCK.get(),
-                    WaxedModBlocks.WAXED_BUBBLE_CORAL_BLOCK.get(),
-                    WaxedModBlocks.WAXED_FIRE_CORAL_BLOCK.get(),
-                    WaxedModBlocks.WAXED_HORN_CORAL_BLOCK.get());
-            addAfter(entries, Items.HORN_CORAL,
-                    WaxedModBlocks.WAXED_TUBE_CORAL.get(),
-                    WaxedModBlocks.WAXED_BRAIN_CORAL.get(),
-                    WaxedModBlocks.WAXED_BUBBLE_CORAL.get(),
-                    WaxedModBlocks.WAXED_FIRE_CORAL.get(),
-                    WaxedModBlocks.WAXED_HORN_CORAL.get());
-            addAfter(entries, Items.HORN_CORAL_FAN,
-                    WaxedModBlocks.WAXED_TUBE_CORAL_FAN.get(),
-                    WaxedModBlocks.WAXED_BRAIN_CORAL_FAN.get(),
-                    WaxedModBlocks.WAXED_BUBBLE_CORAL_FAN.get(),
-                    WaxedModBlocks.WAXED_FIRE_CORAL_FAN.get(),
-                    WaxedModBlocks.WAXED_HORN_CORAL_FAN.get());
+            if (ModList.get().isLoaded("upgrade_aquatic")) {
+                addAfter(entries, UABlocks.PRISMARINE_CORAL_BLOCK.get(),
+                        WaxedModBlocks.WAXED_TUBE_CORAL_BLOCK.get(),
+                        WaxedModBlocks.WAXED_BRAIN_CORAL_BLOCK.get(),
+                        WaxedModBlocks.WAXED_BUBBLE_CORAL_BLOCK.get(),
+                        WaxedModBlocks.WAXED_FIRE_CORAL_BLOCK.get(),
+                        WaxedModBlocks.WAXED_HORN_CORAL_BLOCK.get(),
+                        WaxedModBlocks.WAXED_ACAN_CORAL_BLOCK.get(),
+                        WaxedModBlocks.WAXED_FINGER_CORAL_BLOCK.get(),
+                        WaxedModBlocks.WAXED_STAR_CORAL_BLOCK.get(),
+                        WaxedModBlocks.WAXED_MOSS_CORAL_BLOCK.get(),
+                        WaxedModBlocks.WAXED_PETAL_CORAL_BLOCK.get(),
+                        WaxedModBlocks.WAXED_BRANCH_CORAL_BLOCK.get(),
+                        WaxedModBlocks.WAXED_ROCK_CORAL_BLOCK.get(),
+                        WaxedModBlocks.WAXED_PILLOW_CORAL_BLOCK.get(),
+                        WaxedModBlocks.WAXED_SILK_CORAL_BLOCK.get(),
+                        WaxedModBlocks.WAXED_CHROME_CORAL_BLOCK.get(),
+                        WaxedModBlocks.WAXED_PRISMARINE_CORAL_BLOCK.get());
+                addAfter(entries, UABlocks.PRISMARINE_CORAL.get(),
+                        WaxedModBlocks.WAXED_TUBE_CORAL.get(),
+                        WaxedModBlocks.WAXED_BRAIN_CORAL.get(),
+                        WaxedModBlocks.WAXED_BUBBLE_CORAL.get(),
+                        WaxedModBlocks.WAXED_FIRE_CORAL.get(),
+                        WaxedModBlocks.WAXED_HORN_CORAL.get(),
+                        WaxedModBlocks.WAXED_ACAN_CORAL.get(),
+                        WaxedModBlocks.WAXED_FINGER_CORAL.get(),
+                        WaxedModBlocks.WAXED_STAR_CORAL.get(),
+                        WaxedModBlocks.WAXED_MOSS_CORAL.get(),
+                        WaxedModBlocks.WAXED_PETAL_CORAL.get(),
+                        WaxedModBlocks.WAXED_BRANCH_CORAL.get(),
+                        WaxedModBlocks.WAXED_ROCK_CORAL.get(),
+                        WaxedModBlocks.WAXED_PILLOW_CORAL.get(),
+                        WaxedModBlocks.WAXED_SILK_CORAL.get(),
+                        WaxedModBlocks.WAXED_CHROME_CORAL.get(),
+                        WaxedModBlocks.WAXED_PRISMARINE_CORAL.get());
+                addAfter(entries, UABlocks.PRISMARINE_CORAL_FAN.get(),
+                        WaxedModBlocks.WAXED_TUBE_CORAL_FAN.get(),
+                        WaxedModBlocks.WAXED_BRAIN_CORAL_FAN.get(),
+                        WaxedModBlocks.WAXED_BUBBLE_CORAL_FAN.get(),
+                        WaxedModBlocks.WAXED_FIRE_CORAL_FAN.get(),
+                        WaxedModBlocks.WAXED_HORN_CORAL_FAN.get(),
+                        WaxedModBlocks.WAXED_ACAN_CORAL_FAN.get(),
+                        WaxedModBlocks.WAXED_FINGER_CORAL_FAN.get(),
+                        WaxedModBlocks.WAXED_STAR_CORAL_FAN.get(),
+                        WaxedModBlocks.WAXED_MOSS_CORAL_FAN.get(),
+                        WaxedModBlocks.WAXED_PETAL_CORAL_FAN.get(),
+                        WaxedModBlocks.WAXED_BRANCH_CORAL_FAN.get(),
+                        WaxedModBlocks.WAXED_ROCK_CORAL_FAN.get(),
+                        WaxedModBlocks.WAXED_PILLOW_CORAL_FAN.get(),
+                        WaxedModBlocks.WAXED_SILK_CORAL_FAN.get(),
+                        WaxedModBlocks.WAXED_CHROME_CORAL_FAN.get(),
+                        WaxedModBlocks.WAXED_PRISMARINE_CORAL_FAN.get());
+                addAfter(entries, UABlocks.PRISMARINE_CORAL_SHOWER.get(), WaxedModBlocks.WAXED_PRISMARINE_CORAL_SHOWER.get());
+            } else {
+                addAfter(entries, Items.HORN_CORAL_BLOCK,
+                        WaxedModBlocks.WAXED_TUBE_CORAL_BLOCK.get(),
+                        WaxedModBlocks.WAXED_BRAIN_CORAL_BLOCK.get(),
+                        WaxedModBlocks.WAXED_BUBBLE_CORAL_BLOCK.get(),
+                        WaxedModBlocks.WAXED_FIRE_CORAL_BLOCK.get(),
+                        WaxedModBlocks.WAXED_HORN_CORAL_BLOCK.get());
+                addAfter(entries, Items.HORN_CORAL,
+                        WaxedModBlocks.WAXED_TUBE_CORAL.get(),
+                        WaxedModBlocks.WAXED_BRAIN_CORAL.get(),
+                        WaxedModBlocks.WAXED_BUBBLE_CORAL.get(),
+                        WaxedModBlocks.WAXED_FIRE_CORAL.get(),
+                        WaxedModBlocks.WAXED_HORN_CORAL.get());
+                addAfter(entries, Items.HORN_CORAL_FAN,
+                        WaxedModBlocks.WAXED_TUBE_CORAL_FAN.get(),
+                        WaxedModBlocks.WAXED_BRAIN_CORAL_FAN.get(),
+                        WaxedModBlocks.WAXED_BUBBLE_CORAL_FAN.get(),
+                        WaxedModBlocks.WAXED_FIRE_CORAL_FAN.get(),
+                        WaxedModBlocks.WAXED_HORN_CORAL_FAN.get());
+            }
         }
         if (event.getTabKey() == CreativeModeTabs.COLORED_BLOCKS) {
             addAfter(entries, Items.CANDLE, WaxedModBlocks.SOUL_CANDLE.get());
@@ -265,11 +359,12 @@ public class Waxed {
         }
     }
 
+
+
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-
         }
     }
 }
