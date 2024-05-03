@@ -240,11 +240,11 @@ public class WaxedModBlocks {
     }
 
     private static Block wax_block(MapColor pMapColor) {
-        return new Block(BlockBehaviour.Properties.of().mapColor(pMapColor).strength(0.6f).sound(SoundType.CORAL_BLOCK));
+        return new Block(BlockBehaviour.Properties.of().mapColor(pMapColor).strength(0.6f).sound(SoundType.CORAL_BLOCK).pushReaction(PushReaction.PUSH_ONLY));
     }
 
     private static Block wax_pillar(MapColor pMapColor) {
-        return new WaxPillarBlock(BlockBehaviour.Properties.of().mapColor(pMapColor).strength(0.6f).sound(SoundType.CORAL_BLOCK));
+        return new WaxPillarBlock(BlockBehaviour.Properties.of().mapColor(pMapColor).strength(0.6f).sound(SoundType.CORAL_BLOCK).pushReaction(PushReaction.PUSH_ONLY));
     }
     
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
