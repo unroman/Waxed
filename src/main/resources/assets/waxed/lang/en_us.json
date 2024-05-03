@@ -71,8 +71,13 @@
 
   "block.waxed.empty_honeycomb": "Empty Honeycomb",
   "block.waxed.soul_candle": "Soul Candle",
+  "block.waxed.soul_candle_holder": "Soul Candle Holder",
+  "block.waxed.soul_candle_cake": "Soul Candle Cake",
   "block.waxed.wick": "Wick",
-  "block.waxed.soul_wick": "Soul Wick",
+  "block.waxed.waxed_fodder": "Waxed Fodder",
+  "block.waxed.waxed_soap_block": "Waxed Soap Block",
+  "block.waxed.waxed_sugar_cube": "Waxed Sugar Cube",
+  "block.waxed.waxed_feather_block": "Waxed Feather Block",
 
   "block.waxed.waxed_sand": "Waxed Sand",
   "block.waxed.waxed_red_sand": "Waxed Red Sand",
