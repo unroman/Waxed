@@ -1,6 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "building",
+  "group": "wax_pillars",
   "key": {
     "W": {
       "item": "waxed:light_blue_wax_block"

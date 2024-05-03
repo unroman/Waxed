@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "waxed:block/waxed_moss_coral"
+  }
+}

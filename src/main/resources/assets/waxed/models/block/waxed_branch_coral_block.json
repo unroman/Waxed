@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "waxed:block/waxed_branch_coral_block"
+  }
+}

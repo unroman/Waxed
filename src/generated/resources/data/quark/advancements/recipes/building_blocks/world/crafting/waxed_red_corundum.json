@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_red_corundum": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "quark:red_corundum"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "quark:world/crafting/waxed_red_corundum"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_red_corundum",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "quark:world/crafting/waxed_red_corundum"
+    ]
+  },
+  "sends_telemetry_event": false
+}

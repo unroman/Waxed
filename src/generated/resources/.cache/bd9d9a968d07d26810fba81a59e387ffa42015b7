@@ -1,4 +1,4 @@
-// 1.20.1	2024-04-18T01:34:28.9993585	Tags for minecraft:block mod id waxed
+// 1.20.1	2024-04-22T17:38:42.0078316	Tags for minecraft:block mod id waxed
 a3d8291208292538f407ae29849555b097e4fb6a data/forge/tags/blocks/sand.json
 7fef43fc72db02ad48b0811ef83daf6ab8ee526a data/forge/tags/blocks/sand/colorless.json
 3f06fd2399b70d2a9a98c4ad746c6c282bb59086 data/forge/tags/blocks/sand/red.json
@@ -11,7 +11,7 @@ a2069a26f476b488369b70b8958bbe669e8ff4fe data/minecraft/tags/blocks/candle_cakes
 06630d8477787695bb14fd47e902e652e198f686 data/minecraft/tags/blocks/mineable/hoe.json
 8a33b064198251db22273b1e839abe0525d03c24 data/minecraft/tags/blocks/mineable/pickaxe.json
 b50072ab99f0ac604cf2f8217ffb5d184c385f14 data/minecraft/tags/blocks/mineable/shovel.json
-1d4d52e3e2f41c70bc0509cb717e702611b0c482 data/minecraft/tags/blocks/piglin_repellents.json
+b298ba62a8328b89e185587cb219121a8aaf1ae2 data/minecraft/tags/blocks/piglin_repellents.json
 a3d8291208292538f407ae29849555b097e4fb6a data/minecraft/tags/blocks/sand.json
 a3d8291208292538f407ae29849555b097e4fb6a data/minecraft/tags/blocks/smelts_to_glass.json
 a511458b639099f330b215cb2fb1586df69a7c74 data/minecraft/tags/blocks/snow.json

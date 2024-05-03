@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/coral_fan",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "fan": "waxed:block/waxed_finger_coral_fan"
+  }
+}

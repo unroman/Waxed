@@ -1,6 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "building",
+  "group": "wax_blocks",
   "key": {
     "D": {
       "item": "minecraft:gray_dye"
