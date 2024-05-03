@@ -33,9 +33,6 @@ public class EmptyingHoneycombBlock {
                 CriteriaTriggers.ITEM_USED_ON_BLOCK.trigger((ServerPlayer)player, blockPos, itemStack);
             }
             interactEvent.getEntity().swing(interactEvent.getHand());
-            //if (!interactEvent.getEntity().isCreative()) interactEvent.getItemStack().shrink(1);
-            //if (!interactEvent.getEntity().isCreative() && interactEvent.getEntity().getInventory().items.contains(Items.HONEY_BOTTLE)) interactEvent.getItemStack().shrink(1);
-
             itemStack.shrink(1);
             level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS, 1.0F, 1.0F);
             if (itemStack.isEmpty()) {
