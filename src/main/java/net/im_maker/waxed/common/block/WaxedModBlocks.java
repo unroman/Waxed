@@ -228,6 +228,12 @@ public class WaxedModBlocks {
     public static final RegistryObject<Block> WAXED_FOREST_CONCRETE_POWDER = registerBlock("waxed_forest_concrete_powder", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.EMERALD).instrument(NoteBlockInstrument.SNARE).strength(0.5f).sound(SoundType.SAND)));
     public static final RegistryObject<Block> WAXED_GINGER_CONCRETE_POWDER = registerBlock("waxed_ginger_concrete_powder", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_ORANGE).instrument(NoteBlockInstrument.SNARE).strength(0.5f).sound(SoundType.SAND)));
     public static final RegistryObject<Block> WAXED_TAN_CONCRETE_POWDER = registerBlock("waxed_tan_concrete_powder", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.DIRT).instrument(NoteBlockInstrument.SNARE).strength(0.5f).sound(SoundType.SAND)));
+    //Supplementaries Waxed Blocks
+    public static final RegistryObject<Block> WAXED_FODDER = registerBlock("waxed_fodder", () -> new Block(BlockBehaviour.Properties.copy(Blocks.MOSS_BLOCK).pushReaction(PushReaction.NORMAL)));
+    public static final RegistryObject<Block> WAXED_SUGAR_CUBE = registerBlock("waxed_sugar_cube", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.SNOW).strength(0.5F).sound(SoundType.SAND)));
+    public static final RegistryObject<Block> WAXED_SOAP_BLOCK = registerBlock("waxed_soap_block", () -> new Block(BlockBehaviour.Properties.of().mapColor(DyeColor.PINK).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.25F, 4.0F).sound(SoundType.CORAL_BLOCK)));
+    public static final RegistryObject<Block> WAXED_FEATHER_BLOCK = registerBlock("waxed_feather_block", () -> ModList.get().isLoaded("supplementaries") ? new WaxedFeatherBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).strength(0.5F).dynamicShape().noCollission()) : new Block(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).strength(0.5F).dynamicShape().noCollission()));
+
 
     private static boolean always(BlockState p_50775_, BlockGetter p_50776_, BlockPos p_50777_) {
         return true;
