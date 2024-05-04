@@ -89,32 +89,25 @@ public class Waxed {
             addAfter(entries, Items.HONEYCOMB, WaxedModItems.WAX.get());
         }
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
+            addAfter(entries, Items.WAXED_OXIDIZED_CUT_COPPER_SLAB,
+                    WaxedModBlocks.WAXED_PRISMARINE.get(),
+                    WaxedModBlocks.WAXED_PRISMARINE_STAIRS.get(),
+                    WaxedModBlocks.WAXED_PRISMARINE_SLAB.get(),
+                    WaxedModBlocks.WAXED_PRISMARINE_WALL.get(),
+                    WaxedModBlocks.WAXED_SAND.get(),
+                    WaxedModBlocks.WAXED_RED_SAND.get(),
+                    WaxedModBlocks.WAXED_GRAVEL.get(),
+                    WaxedModBlocks.WAXED_POWDER_SNOW.get(),
+                    WaxedModBlocks.WAXED_SOUL_SAND.get(),
+                    WaxedModBlocks.WAXED_MAGMA_BLOCK.get(),
+                    WaxedModBlocks.WAXED_SPONGE.get(),
+                    WaxedModBlocks.WAXED_REDSTONE_BLOCK.get());
             if (ModList.get().isLoaded("supplementaries")){
-                addAfter(entries, Items.WAXED_OXIDIZED_CUT_COPPER_SLAB,
-                        WaxedModBlocks.WAXED_SAND.get(),
-                        WaxedModBlocks.WAXED_RED_SAND.get(),
-                        WaxedModBlocks.WAXED_GRAVEL.get(),
-                        WaxedModBlocks.WAXED_POWDER_SNOW.get(),
-                        WaxedModBlocks.WAXED_SOUL_SAND.get(),
-                        WaxedModBlocks.WAXED_MAGMA_BLOCK.get(),
-                        WaxedModBlocks.WAXED_PRISMARINE.get(),
-                        WaxedModBlocks.WAXED_SPONGE.get(),
-                        WaxedModBlocks.WAXED_REDSTONE_BLOCK.get(),
+                addAfter(entries, WaxedModBlocks.WAXED_REDSTONE_BLOCK.get(),
                         WaxedModBlocks.WAXED_SOAP_BLOCK.get(),
                         WaxedModBlocks.WAXED_FEATHER_BLOCK.get(),
                         WaxedModBlocks.WAXED_SUGAR_CUBE.get(),
                         WaxedModBlocks.WAXED_FODDER.get());
-            } else {
-                addAfter(entries, Items.WAXED_OXIDIZED_CUT_COPPER_SLAB,
-                        WaxedModBlocks.WAXED_SAND.get(),
-                        WaxedModBlocks.WAXED_RED_SAND.get(),
-                        WaxedModBlocks.WAXED_GRAVEL.get(),
-                        WaxedModBlocks.WAXED_POWDER_SNOW.get(),
-                        WaxedModBlocks.WAXED_SOUL_SAND.get(),
-                        WaxedModBlocks.WAXED_MAGMA_BLOCK.get(),
-                        WaxedModBlocks.WAXED_PRISMARINE.get(),
-                        WaxedModBlocks.WAXED_SPONGE.get(),
-                        WaxedModBlocks.WAXED_REDSTONE_BLOCK.get());
             }
         }
         if (event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS) {
@@ -358,8 +351,6 @@ public class Waxed {
             }
         }
     }
-
-
 
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
