@@ -148,10 +148,23 @@ public class WaxingBlocks {
         BiMap<Block, Block> waxedBlocks = HashBiMap.create();
         waxedBlocks.put(Blocks.MAGMA_BLOCK, WaxedModBlocks.WAXED_MAGMA_BLOCK.get());
         waxedBlocks.put(Blocks.REDSTONE_BLOCK, WaxedModBlocks.WAXED_REDSTONE_BLOCK.get());
-        waxedBlocks.put(Blocks.PRISMARINE, WaxedModBlocks.WAXED_PRISMARINE.get());
+        //waxedBlocks.put(Blocks.PRISMARINE, WaxedModBlocks.WAXED_PRISMARINE.get());
+        //waxedBlocks.put(Blocks.PRISMARINE_STAIRS, WaxedModBlocks.WAXED_PRISMARINE_STAIRS.get());
+        //waxedBlocks.put(Blocks.PRISMARINE_SLAB, WaxedModBlocks.WAXED_PRISMARINE_SLAB.get());
+        //waxedBlocks.put(Blocks.PRISMARINE_WALL, WaxedModBlocks.WAXED_PRISMARINE_WALL.get());
         if (ModList.get().isLoaded("supplementaries")) {
             waxedBlocks.put(ModRegistry.SOAP_BLOCK.get(), WaxedModBlocks.WAXED_SOAP_BLOCK.get());
         }
+        waxedBlocks.putAll(waxedBlocks);
+        return waxedBlocks;
+    });
+
+    public static final Supplier<BiMap<Block, Block>> WAXABLES_PRISMARINE_AXE = Suppliers.memoize(() -> {
+        BiMap<Block, Block> waxedBlocks = HashBiMap.create();
+        waxedBlocks.put(Blocks.PRISMARINE, WaxedModBlocks.WAXED_PRISMARINE.get());
+        waxedBlocks.put(Blocks.PRISMARINE_STAIRS, WaxedModBlocks.WAXED_PRISMARINE_STAIRS.get());
+        waxedBlocks.put(Blocks.PRISMARINE_SLAB, WaxedModBlocks.WAXED_PRISMARINE_SLAB.get());
+        waxedBlocks.put(Blocks.PRISMARINE_WALL, WaxedModBlocks.WAXED_PRISMARINE_WALL.get());
         waxedBlocks.putAll(waxedBlocks);
         return waxedBlocks;
     });
@@ -270,6 +283,10 @@ public class WaxingBlocks {
         return Optional.ofNullable(WAXABLES_AXE.get().inverse().get(block));
     }
 
+    public static Optional<Block> getUnwaxedPrismarineAxe(Block block) {
+        return Optional.ofNullable(WAXABLES_PRISMARINE_AXE.get().inverse().get(block));
+    }
+
     public static Optional<Block> getUnwaxedHoes(Block block) {
         return Optional.ofNullable(WAXABLES_HOE.get().inverse().get(block));
     }
@@ -321,12 +338,14 @@ public class WaxingBlocks {
         var unwaxedBlock2 = getUnwaxedAxe(blockState.getBlock());
         var unwaxedBlock3 = getUnwaxedHoes(blockState.getBlock());
         var unwaxedBlock4 = getUnwaxedFodderBlock(blockState.getBlock());
+        var unwaxedBlock5 = getUnwaxedPrismarineAxe(blockState.getBlock());
         if (itemStack.is(ItemTags.SHOVELS) && (unwaxedBlock1.isPresent() || unwaxedBlock4.isPresent())) {
             if (unwaxedBlock1.isPresent()) unwaxing(interactEvent ,blockPos ,itemStack ,level ,unwaxedBlock1.isPresent(), unwaxedBlock1.get().withPropertiesOf(blockState), WaxedModSounds.SHOVEL_WAX_OFF.get());
             if (unwaxedBlock4.isPresent()) unwaxing(interactEvent ,blockPos ,itemStack ,level ,unwaxedBlock4.isPresent(), unwaxedBlock4.get().withPropertiesOf(blockState), WaxedModSounds.SHOVEL_WAX_OFF.get());
             return InteractionResult.sidedSuccess(level.isClientSide);
-        } else if (itemStack.is(ItemTags.AXES) && unwaxedBlock2.isPresent()) {
-            unwaxing(interactEvent ,blockPos ,itemStack ,level ,unwaxedBlock2.isPresent(), unwaxedBlock2.get().withPropertiesOf(blockState), SoundEvents.AXE_WAX_OFF);
+        } else if (itemStack.is(ItemTags.AXES) && (unwaxedBlock2.isPresent() || unwaxedBlock5.isPresent())) {
+            if (unwaxedBlock2.isPresent()) unwaxing(interactEvent ,blockPos ,itemStack ,level ,unwaxedBlock2.isPresent(), unwaxedBlock2.get().withPropertiesOf(blockState), SoundEvents.AXE_WAX_OFF);
+            if (unwaxedBlock5.isPresent()) unwaxing(interactEvent ,blockPos ,itemStack ,level ,unwaxedBlock5.isPresent(), unwaxedBlock5.get().withPropertiesOf(blockState), SoundEvents.AXE_WAX_OFF);
             return InteractionResult.sidedSuccess(level.isClientSide);
         } else if (itemStack.is(ItemTags.HOES) && unwaxedBlock3.isPresent()) {
             unwaxing(interactEvent ,blockPos ,itemStack ,level ,unwaxedBlock3.isPresent(), unwaxedBlock3.get().withPropertiesOf(blockState), WaxedModSounds.SHOVEL_WAX_OFF.get());
