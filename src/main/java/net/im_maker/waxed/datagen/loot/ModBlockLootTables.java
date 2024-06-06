@@ -221,7 +221,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(WaxedModBlocks.WAXED_FODDER.get());
         this.dropSelf(WaxedModBlocks.WAXED_SUGAR_CUBE.get());
         this.dropSelf(WaxedModBlocks.WAXED_SOAP_BLOCK.get());
-        this.dropSelf(WaxedModBlocks.WAXED_FEATHER_BLOCK.get());
+        //this.dropSelf(WaxedModBlocks.WAXED_FEATHER_BLOCK.get());
 
     }
 
