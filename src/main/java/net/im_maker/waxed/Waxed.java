@@ -105,7 +105,7 @@ public class Waxed {
             if (ModList.get().isLoaded("supplementaries")){
                 addAfter(entries, WaxedModBlocks.WAXED_REDSTONE_BLOCK.get(),
                         WaxedModBlocks.WAXED_SOAP_BLOCK.get(),
-                        WaxedModBlocks.WAXED_FEATHER_BLOCK.get(),
+                        //WaxedModBlocks.WAXED_FEATHER_BLOCK.get(),
                         WaxedModBlocks.WAXED_SUGAR_CUBE.get(),
                         WaxedModBlocks.WAXED_FODDER.get());
             }
@@ -149,22 +149,22 @@ public class Waxed {
                         WaxedModBlocks.WAXED_CHROME_CORAL.get(),
                         WaxedModBlocks.WAXED_PRISMARINE_CORAL.get());
                 addAfter(entries, UABlocks.PRISMARINE_CORAL_FAN.get(),
-                        WaxedModBlocks.WAXED_TUBE_CORAL_FAN.get(),
-                        WaxedModBlocks.WAXED_BRAIN_CORAL_FAN.get(),
-                        WaxedModBlocks.WAXED_BUBBLE_CORAL_FAN.get(),
-                        WaxedModBlocks.WAXED_FIRE_CORAL_FAN.get(),
-                        WaxedModBlocks.WAXED_HORN_CORAL_FAN.get(),
-                        WaxedModBlocks.WAXED_ACAN_CORAL_FAN.get(),
-                        WaxedModBlocks.WAXED_FINGER_CORAL_FAN.get(),
-                        WaxedModBlocks.WAXED_STAR_CORAL_FAN.get(),
-                        WaxedModBlocks.WAXED_MOSS_CORAL_FAN.get(),
-                        WaxedModBlocks.WAXED_PETAL_CORAL_FAN.get(),
-                        WaxedModBlocks.WAXED_BRANCH_CORAL_FAN.get(),
-                        WaxedModBlocks.WAXED_ROCK_CORAL_FAN.get(),
-                        WaxedModBlocks.WAXED_PILLOW_CORAL_FAN.get(),
-                        WaxedModBlocks.WAXED_SILK_CORAL_FAN.get(),
-                        WaxedModBlocks.WAXED_CHROME_CORAL_FAN.get(),
-                        WaxedModBlocks.WAXED_PRISMARINE_CORAL_FAN.get());
+                        WaxedModItems.WAXED_TUBE_CORAL_FAN.get(),
+                        WaxedModItems.WAXED_BRAIN_CORAL_FAN.get(),
+                        WaxedModItems.WAXED_BUBBLE_CORAL_FAN.get(),
+                        WaxedModItems.WAXED_FIRE_CORAL_FAN.get(),
+                        WaxedModItems.WAXED_HORN_CORAL_FAN.get(),
+                        WaxedModItems.WAXED_ACAN_CORAL_FAN.get(),
+                        WaxedModItems.WAXED_FINGER_CORAL_FAN.get(),
+                        WaxedModItems.WAXED_STAR_CORAL_FAN.get(),
+                        WaxedModItems.WAXED_MOSS_CORAL_FAN.get(),
+                        WaxedModItems.WAXED_PETAL_CORAL_FAN.get(),
+                        WaxedModItems.WAXED_BRANCH_CORAL_FAN.get(),
+                        WaxedModItems.WAXED_ROCK_CORAL_FAN.get(),
+                        WaxedModItems.WAXED_PILLOW_CORAL_FAN.get(),
+                        WaxedModItems.WAXED_SILK_CORAL_FAN.get(),
+                        WaxedModItems.WAXED_CHROME_CORAL_FAN.get(),
+                        WaxedModItems.WAXED_PRISMARINE_CORAL_FAN.get());
                 addAfter(entries, UABlocks.PRISMARINE_CORAL_SHOWER.get(), WaxedModBlocks.WAXED_PRISMARINE_CORAL_SHOWER.get());
             } else {
                 addAfter(entries, Items.HORN_CORAL_BLOCK,
