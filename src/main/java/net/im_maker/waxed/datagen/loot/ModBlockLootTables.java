@@ -149,6 +149,9 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(WaxedModBlocks.WAXED_GRAVEL.get());
         this.dropSelf(WaxedModBlocks.WAXED_POWDER_SNOW.get());
         this.dropSelf(WaxedModBlocks.WAXED_PRISMARINE.get());
+        this.dropSelf(WaxedModBlocks.WAXED_PRISMARINE_STAIRS.get());
+        this.dropSelf(WaxedModBlocks.WAXED_PRISMARINE_SLAB.get());
+        this.dropSelf(WaxedModBlocks.WAXED_PRISMARINE_WALL.get());
         this.dropSelf(WaxedModBlocks.WAXED_REDSTONE_BLOCK.get());
         this.dropSelf(WaxedModBlocks.WAXED_MAGMA_BLOCK.get());
         this.dropSelf(WaxedModBlocks.WAXED_SOUL_SAND.get());
@@ -242,6 +245,10 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
     @Override
     protected Iterable<Block> getKnownBlocks() {
-        return WaxedModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get)::iterator;
+        Stream<Block> blockStream = Stream.concat(
+                WaxedModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get),
+                WaxedModBlocks.BLOCKSS.getEntries().stream().map(RegistryObject::get)
+        );
+        return blockStream::iterator;
     }
 }

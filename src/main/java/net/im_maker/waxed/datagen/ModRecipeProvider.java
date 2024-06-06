@@ -387,7 +387,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             waxedBlock(WaxedModBlocks.WAXED_FODDER.get(), ModRegistry.FODDER.get().asItem(), pWriter);
             waxedBlock(WaxedModBlocks.WAXED_SUGAR_CUBE.get(), ModRegistry.SUGAR_CUBE.get().asItem(), pWriter);
             waxedBlock(WaxedModBlocks.WAXED_SOAP_BLOCK.get(), ModRegistry.SOAP_BLOCK.get().asItem(), pWriter);
-            waxedBlock(WaxedModBlocks.WAXED_FEATHER_BLOCK.get(), ModRegistry.FEATHER_BLOCK.get().asItem(), pWriter);
+            //waxedBlock(WaxedModBlocks.WAXED_FEATHER_BLOCK.get(), ModRegistry.FEATHER_BLOCK.get().asItem(), pWriter);
 
             ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, Items.SUGAR, 9)
                     .requires(WaxedModBlocks.WAXED_SUGAR_CUBE.get(), 1)
