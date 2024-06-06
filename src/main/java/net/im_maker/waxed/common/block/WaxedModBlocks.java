@@ -3,8 +3,6 @@ package net.im_maker.waxed.common.block;
 import net.im_maker.waxed.Waxed;
 import net.im_maker.waxed.common.block.custom.*;
 import net.im_maker.waxed.common.item.WaxedModItems;
-import net.im_maker.waxed.common.particles.WaxedModParticles;
-import net.mehvahdjukaar.supplementaries.common.block.blocks.CandleHolderBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.DyeColor;
@@ -29,6 +27,8 @@ import java.util.function.ToIntFunction;
 public class WaxedModBlocks {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, Waxed.MOD_ID);
+    public static final DeferredRegister<Block> BLOCKSS =
+            DeferredRegister.create(ForgeRegistries.BLOCKS, "supplementaries");
     //Stuff
     public static final RegistryObject<Block> EMPTY_HONEYCOMB = registerBlock("empty_honeycomb", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).strength(0.6f).sound(SoundType.CORAL_BLOCK)));
     public static final RegistryObject<Block> WICK = registerBlock("wick", () -> new WickBlock(1, BlockBehaviour.Properties.of().noCollission().lightLevel(WickBlock.LIGHT_EMISSION).strength(0.1f).sound(SoundType.WOOL).pushReaction(PushReaction.DESTROY)));
@@ -36,8 +36,8 @@ public class WaxedModBlocks {
     public static final RegistryObject<Block> SOUL_CANDLE = registerBlock("soul_candle", () -> new SoulCandleBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).noOcclusion().strength(0.1F).sound(SoundType.CANDLE).lightLevel(SoulCandleBlock.LIGHT_EMISSION).pushReaction(PushReaction.DESTROY)));
     public static final RegistryObject<Block> SOUL_CANDLE_CAKE = BLOCKS.register("soul_candle_cake", () -> new SoulCandleCakeBlock(SOUL_CANDLE.get(), BlockBehaviour.Properties.copy(Blocks.CAKE).lightLevel(litBlockEmission(2))));
     //Supplementaries Waxed Blocks
-    public static final RegistryObject<Block> SOUL_CANDLE_HOLDER = registerBlock("soul_candle_holder", () -> ModList.get().isLoaded("supplementaries") ? new SoulCandleHolderBlock(DyeColor.BROWN, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).noOcclusion().noCollission().instabreak().sound(SoundType.LANTERN).pushReaction(PushReaction.DESTROY), WaxedModParticles.SMALL_SOUL_FLAME::get) : new SoulCandleBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).noOcclusion().strength(0.1F).sound(SoundType.CANDLE).lightLevel(SoulCandleBlock.LIGHT_EMISSION).pushReaction(PushReaction.DESTROY)));
-    public static final RegistryObject<Block> GOLD_SOUL_CANDLE_HOLDER = registerBlock("gold_soul_candle_holder", () -> ModList.get().isLoaded("suppsquared") ? new CandleHolderBlock(DyeColor.BROWN, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).noOcclusion().noCollission().instabreak().sound(SoundType.LANTERN).pushReaction(PushReaction.DESTROY), WaxedModParticles.SMALL_SOUL_FLAME::get) : new SoulCandleBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).noOcclusion().strength(0.1F).sound(SoundType.CANDLE).lightLevel(SoulCandleBlock.LIGHT_EMISSION).pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> SOUL_CANDLE_HOLDER = registerBlockS("soul_candle_holder", () -> ModList.get().isLoaded("supplementaries") ? CandleHolders.SOUL_CANDLE_HOLDER.get() : new SoulCandleBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).noOcclusion().strength(0.1F).sound(SoundType.CANDLE).lightLevel(SoulCandleBlock.LIGHT_EMISSION).pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> GOLD_SOUL_CANDLE_HOLDER = registerBlock("gold_soul_candle_holder", () -> ModList.get().isLoaded("suppsquared") ? CandleHolders.GOLD_SOUL_CANDLE_HOLDER.get() : new SoulCandleBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).noOcclusion().strength(0.1F).sound(SoundType.CANDLE).lightLevel(SoulCandleBlock.LIGHT_EMISSION).pushReaction(PushReaction.DESTROY)));
     //Wax Blocks
     public static final RegistryObject<Block> WAX_BLOCK = registerBlock("wax_block", () -> wax_block(MapColor.SAND));
     public static final RegistryObject<Block> SOUL_WAX_BLOCK = registerBlock("soul_wax_block", () -> wax_block(MapColor.COLOR_BROWN));
@@ -253,6 +253,18 @@ public class WaxedModBlocks {
         return toReturn;
     }
 
+    private static <T extends Block> RegistryObject<T> registerBlockS(String name, Supplier<T> block) {
+        if (ModList.get().isLoaded("supplementaries")) {
+            RegistryObject<T> toReturn = BLOCKSS.register(name, block);
+            registerBlockItem(name, toReturn);
+            return toReturn;
+        } else {
+            RegistryObject<T> toReturn = BLOCKS.register(name, block);
+            registerBlockItem(name, toReturn);
+            return toReturn;
+        }
+    }
+
     public static <T extends Block> RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block) {
         return WaxedModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
     }
@@ -265,5 +277,6 @@ public class WaxedModBlocks {
 
     public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);
+        BLOCKSS.register(eventBus);
     }
 }
