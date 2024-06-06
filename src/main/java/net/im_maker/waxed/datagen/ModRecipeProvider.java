@@ -3,7 +3,6 @@ package net.im_maker.waxed.datagen;
 import com.github.alexthe668.iwannaskate.server.item.IWSItemRegistry;
 import com.ninni.dye_depot.registry.DDItems;
 import com.teamabnormals.buzzier_bees.core.registry.BBBlocks;
-import com.teamabnormals.buzzier_bees.core.registry.BBItems;
 import com.teamabnormals.upgrade_aquatic.core.registry.UABlocks;
 import net.im_maker.waxed.Waxed;
 import net.im_maker.waxed.common.block.WaxedModBlocks;
@@ -13,12 +12,10 @@ import net.mehvahdjukaar.supplementaries.reg.ModRegistry;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.HoneycombItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -29,10 +26,8 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.ForgeRegistries;
-import org.violetmoon.quark.base.Quark;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.function.Consumer;
 
 public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder {
@@ -110,9 +105,19 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(consumer, s);
     }
 
+    private static void stairs(Consumer<FinishedRecipe> pFinishedRecipeConsumer, ItemLike pPressurePlate, ItemLike pMaterial) {
+        stairBuilder(pPressurePlate, Ingredient.of(pMaterial)).unlockedBy(getHasName(pMaterial), has(pMaterial)).save(pFinishedRecipeConsumer);
+    }
+
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> pWriter) {
         oreSmelting(pWriter, EMPTY_HONEYCOMB, RecipeCategory.MISC, WaxedModBlocks.WAX_BLOCK.get(), 0.25f, 200, "wax_block");
+        //stonecutterResultFromBase(pWriter, RecipeCategory.BUILDING_BLOCKS, WaxedModBlocks.WAXED_PRISMARINE_STAIRS.get(), WaxedModBlocks.WAXED_PRISMARINE.get());
+        //stonecutterResultFromBase(pWriter, RecipeCategory.BUILDING_BLOCKS, WaxedModBlocks.WAXED_PRISMARINE_SLAB.get(), WaxedModBlocks.WAXED_PRISMARINE.get());
+        //stonecutterResultFromBase(pWriter, RecipeCategory.BUILDING_BLOCKS, WaxedModBlocks.WAXED_PRISMARINE_WALL.get(), WaxedModBlocks.WAXED_PRISMARINE.get());
+        //stairs(pWriter, WaxedModBlocks.WAXED_PRISMARINE_STAIRS.get(), WaxedModBlocks.WAXED_PRISMARINE.get());
+        //slab(pWriter, RecipeCategory.BUILDING_BLOCKS, WaxedModBlocks.WAXED_PRISMARINE_SLAB.get(), WaxedModBlocks.WAXED_PRISMARINE.get());
+        //wall(pWriter, RecipeCategory.BUILDING_BLOCKS, WaxedModBlocks.WAXED_PRISMARINE_WALL.get(), WaxedModBlocks.WAXED_PRISMARINE.get());
         waxRecipes(pWriter);
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, Items.HONEYCOMB, 4)
                 .requires(Items.HONEYCOMB_BLOCK)
@@ -196,27 +201,11 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         waxedBlock(WaxedModBlocks.WAXED_POWDER_SNOW.get(), Items.POWDER_SNOW_BUCKET, pWriter);
         waxedBlock(WaxedModBlocks.WAXED_SOUL_SAND.get(), Items.SOUL_SAND, pWriter);
         waxedBlock(WaxedModBlocks.WAXED_REDSTONE_BLOCK.get(), Items.REDSTONE_BLOCK, pWriter);
-        waxedBlock(WaxedModBlocks.WAXED_PRISMARINE.get(), Items.PRISMARINE, pWriter);
+        //waxedBlock(WaxedModBlocks.WAXED_PRISMARINE.get(), Items.PRISMARINE, pWriter);
         waxedBlock(WaxedModBlocks.WAXED_MAGMA_BLOCK.get(), Items.MAGMA_BLOCK, pWriter);
         waxedBlock(WaxedModBlocks.WAXED_SPONGE.get(), Items.SPONGE, pWriter);
         //waxedBlock(WaxedBlocks.WAXED_COBWEB.get(), Items.COBWEB, pWriter);
-/*
-        waxedBlock(WaxedModBlocks.WAXED_TUBE_CORAL_BLOCK.get(), Items.TUBE_CORAL_BLOCK, pWriter);
-        waxedBlock(WaxedModBlocks.WAXED_BRAIN_CORAL_BLOCK.get(), Items.BRAIN_CORAL_BLOCK, pWriter);
-        waxedBlock(WaxedModBlocks.WAXED_BUBBLE_CORAL_BLOCK.get(), Items.BUBBLE_CORAL_BLOCK, pWriter);
-        waxedBlock(WaxedModBlocks.WAXED_FIRE_CORAL_BLOCK.get(), Items.FIRE_CORAL_BLOCK, pWriter);
-        waxedBlock(WaxedModBlocks.WAXED_HORN_CORAL_BLOCK.get(), Items.HORN_CORAL_BLOCK, pWriter);
-        waxedBlock(WaxedModBlocks.WAXED_TUBE_CORAL.get(), Items.TUBE_CORAL, pWriter);
-        waxedBlock(WaxedModBlocks.WAXED_BRAIN_CORAL.get(), Items.BRAIN_CORAL, pWriter);
-        waxedBlock(WaxedModBlocks.WAXED_BUBBLE_CORAL.get(), Items.BUBBLE_CORAL, pWriter);
-        waxedBlock(WaxedModBlocks.WAXED_FIRE_CORAL.get(), Items.FIRE_CORAL, pWriter);
-        waxedBlock(WaxedModBlocks.WAXED_HORN_CORAL.get(), Items.HORN_CORAL, pWriter);
-        waxedBlock(WaxedModBlocks.WAXED_TUBE_CORAL_FAN.get(), Items.TUBE_CORAL_FAN, pWriter);
-        waxedBlock(WaxedModBlocks.WAXED_BRAIN_CORAL_FAN.get(), Items.BRAIN_CORAL_FAN, pWriter);
-        waxedBlock(WaxedModBlocks.WAXED_BUBBLE_CORAL_FAN.get(), Items.BUBBLE_CORAL_FAN, pWriter);
-        waxedBlock(WaxedModBlocks.WAXED_FIRE_CORAL_FAN.get(), Items.FIRE_CORAL_FAN, pWriter);
-        waxedBlock(WaxedModBlocks.WAXED_HORN_CORAL_FAN.get(), Items.HORN_CORAL_FAN, pWriter);
-        */
+
         String[] corals = {"tube", "brain", "bubble", "fire", "horn"};
         for (String coralType : corals) {
             ResourceLocation waxedCoralBlockLocation = new ResourceLocation("waxed:waxed_" + coralType + "_coral_block");
