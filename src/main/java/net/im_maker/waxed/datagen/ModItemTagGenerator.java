@@ -29,7 +29,17 @@ public class ModItemTagGenerator extends ItemTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
 
-        this.copy(WaxedModBlockTags.WAX_PILLARS, WaxedModItemTags.WAX_PILLARS);
+        this.tag(ItemTags.STAIRS).add(
+                WaxedModBlocks.WAXED_PRISMARINE_STAIRS.get().asItem()
+        );
+
+        this.tag(ItemTags.SLABS).add(
+                WaxedModBlocks.WAXED_PRISMARINE_SLAB.get().asItem()
+        );
+
+        this.tag(ItemTags.WALLS).add(
+                WaxedModBlocks.WAXED_PRISMARINE_WALL.get().asItem()
+        );
 
         this.tag(WaxedModItemTags.CAN_WAX).add(
                 WaxedModItems.WAX.get(),
