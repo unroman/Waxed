@@ -90,10 +90,10 @@ public class Waxed {
         }
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
             addAfter(entries, Items.WAXED_OXIDIZED_CUT_COPPER_SLAB,
-                    WaxedModBlocks.WAXED_PRISMARINE.get(),
-                    WaxedModBlocks.WAXED_PRISMARINE_STAIRS.get(),
-                    WaxedModBlocks.WAXED_PRISMARINE_SLAB.get(),
-                    WaxedModBlocks.WAXED_PRISMARINE_WALL.get(),
+                    //WaxedModBlocks.WAXED_PRISMARINE.get(),
+                    //WaxedModBlocks.WAXED_PRISMARINE_STAIRS.get(),
+                    //WaxedModBlocks.WAXED_PRISMARINE_SLAB.get(),
+                    //WaxedModBlocks.WAXED_PRISMARINE_WALL.get(),
                     WaxedModBlocks.WAXED_SAND.get(),
                     WaxedModBlocks.WAXED_RED_SAND.get(),
                     WaxedModBlocks.WAXED_GRAVEL.get(),
