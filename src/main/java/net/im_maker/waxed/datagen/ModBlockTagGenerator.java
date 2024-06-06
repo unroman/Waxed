@@ -22,6 +22,18 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
 
+        this.tag(BlockTags.STAIRS).add(
+                WaxedModBlocks.WAXED_PRISMARINE_STAIRS.get()
+        );
+
+        this.tag(BlockTags.SLABS).add(
+                WaxedModBlocks.WAXED_PRISMARINE_SLAB.get()
+        );
+
+        this.tag(BlockTags.WALLS).add(
+                WaxedModBlocks.WAXED_PRISMARINE_WALL.get()
+        );
+
         this.tag(BlockTags.CANDLES).add(
                 WaxedModBlocks.SOUL_CANDLE.get()
         );
@@ -143,7 +155,6 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 WaxedModBlocks.MAGENTA_WAX_PILLAR.get(),
                 WaxedModBlocks.PINK_WAX_PILLAR.get(),
                 WaxedModBlocks.WAXED_REDSTONE_BLOCK.get(),
-                WaxedModBlocks.WAXED_PRISMARINE.get(),
                 WaxedModBlocks.WAXED_MAGMA_BLOCK.get(),
                 WaxedModBlocks.WAXED_TUBE_CORAL_BLOCK.get(),
                 WaxedModBlocks.WAXED_BRAIN_CORAL_BLOCK.get(),
