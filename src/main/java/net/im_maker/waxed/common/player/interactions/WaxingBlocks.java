@@ -3,7 +3,6 @@ package net.im_maker.waxed.common.player.interactions;
 import com.google.common.base.Suppliers;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
-import com.google.common.collect.ImmutableSet;
 import com.ninni.dye_depot.registry.DDBlocks;
 import com.teamabnormals.upgrade_aquatic.core.registry.UABlocks;
 import net.im_maker.waxed.Waxed;
@@ -11,16 +10,12 @@ import net.im_maker.waxed.common.block.WaxedModBlocks;
 import net.im_maker.waxed.common.item.WaxedModItems;
 import net.im_maker.waxed.common.sounds.WaxedModSounds;
 import net.im_maker.waxed.common.tags.WaxedModItemTags;
-import net.mehvahdjukaar.supplementaries.common.block.blocks.FodderBlock;
 import net.mehvahdjukaar.supplementaries.reg.ModRegistry;
 import net.minecraft.advancements.Advancement;
-import net.minecraft.advancements.AdvancementList;
 import net.minecraft.advancements.AdvancementProgress;
 import net.minecraft.advancements.CriteriaTriggers;
-import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -35,20 +30,12 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraftforge.event.entity.player.AdvancementEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
-import org.apache.commons.lang3.tuple.Pair;
-import org.violetmoon.quark.content.building.block.QuarkVerticalSlabBlock;
-import org.violetmoon.quark.content.building.block.WeatheringCopperVerticalSlabBlock;
-import org.violetmoon.quark.content.building.module.VerticalSlabsModule;
-import org.violetmoon.zeta.util.handler.ToolInteractionHandler;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 import java.util.function.Supplier;
 
@@ -139,7 +126,6 @@ public class WaxingBlocks {
                 waxedBlocks.put(VerticalCopperSlab, waxedVerticalCopperSlab);
             }
         }
-
         waxedBlocks.putAll(waxedBlocks);
         return waxedBlocks;
     });
@@ -241,7 +227,7 @@ public class WaxingBlocks {
             waxedBlocks.put(UABlocks.PRISMARINE_CORAL_SHOWER.get(), WaxedModBlocks.WAXED_PRISMARINE_CORAL_SHOWER.get());
         }
         if (ModList.get().isLoaded("supplementaries")) {
-            waxedBlocks.put(ModRegistry.FEATHER_BLOCK.get(), WaxedModBlocks.WAXED_FEATHER_BLOCK.get());
+            //waxedBlocks.put(ModRegistry.FEATHER_BLOCK.get(), WaxedModBlocks.WAXED_FEATHER_BLOCK.get());
         }
         waxedBlocks.putAll(waxedBlocks);
         return waxedBlocks;
