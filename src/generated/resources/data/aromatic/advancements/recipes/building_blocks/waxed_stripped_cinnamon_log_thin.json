@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_prismarine": {
+    "has_stripped_cinnamon_log_thin": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:prismarine"
+              "aromatic:stripped_cinnamon_log_thin"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "waxed:waxed_prismarine"
+        "recipe": "aromatic:waxed_stripped_cinnamon_log_thin"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_prismarine",
+      "has_stripped_cinnamon_log_thin",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "waxed:waxed_prismarine"
+      "aromatic:waxed_stripped_cinnamon_log_thin"
     ]
   },
   "sends_telemetry_event": false

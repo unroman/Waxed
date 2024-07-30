@@ -26,6 +26,8 @@ public class WaxPillarBlock extends RotatedPillarBlock {
         BlockState blockStateAbove = pLevel.getBlockState(blockPosAbove);
         if (blockStateAbove.getBlock() == WaxedModBlocks.WICK.get() && blockStateAbove.getValue(BlockStateProperties.LIT)) {
             pLevel.setBlock(pPos, pState.setValue(MELTED, true), 11);
+        } else if (blockStateAbove.getBlock() == WaxedModBlocks.SOUL_WICK.get() && blockStateAbove.getValue(BlockStateProperties.LIT)) {
+            pLevel.setBlock(pPos, pState.setValue(MELTED, true), 11);
         } else {
             pLevel.setBlock(pPos, pState.setValue(MELTED, false), 11);
         }

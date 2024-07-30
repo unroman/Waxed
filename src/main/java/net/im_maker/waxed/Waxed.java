@@ -5,10 +5,12 @@ import net.im_maker.waxed.common.block.WaxedModBlocks;
 import net.im_maker.waxed.common.particles.WaxedModParticles;
 import net.im_maker.waxed.common.item.WaxedModItems;
 import net.im_maker.waxed.common.sounds.WaxedModSounds;
+import net.mehvahdjukaar.amendments.Amendments;
 import net.mehvahdjukaar.supplementaries.reg.ModRegistry;
 import net.mehvahdjukaar.suppsquared.SuppSquared;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.api.distmarker.Dist;
@@ -32,14 +34,11 @@ public class Waxed {
 
     public Waxed() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-
+        MinecraftForge.EVENT_BUS.register(this);
         WaxedModItems.register(modEventBus);
         WaxedModBlocks.register(modEventBus);
         WaxedModSounds.register(modEventBus);
         WaxedModParticles.register(modEventBus);
-
-        MinecraftForge.EVENT_BUS.register(this);
-
         modEventBus.addListener(this::addCreative);
         modEventBus.addListener(this::commonSetup);
     }

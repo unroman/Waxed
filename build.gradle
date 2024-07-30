@@ -138,6 +138,20 @@ repositories {
     maven {
         url = "https://api.modrinth.com/maven"
     }
+    maven {
+        url "https://cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
+    }
+    maven {
+        name = 'GeckoLib'
+        url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
+        content {
+            includeGroupByRegex("software\\.bernie.*")
+            includeGroup("com.eliotlash.mclib")
+        }
+    }
 }
 
 //apply plugin: 'net.minecraftforge.gradle'
@@ -159,10 +173,18 @@ dependencies {
     implementation fg.deobf("maven.modrinth:upgrade-aquatic:6.0.0")
     implementation fg.deobf("maven.modrinth:supplementaries:1.20-2.8.10")
     implementation fg.deobf("maven.modrinth:supplementaries-squared:8PXoizc7")
-    implementation fg.deobf("maven.modrinth:moonlight:forge_1.20-2.11.12")
+    implementation fg.deobf("maven.modrinth:amendments:rygiK2go")
+    implementation fg.deobf("maven.modrinth:moonlight:forge_1.20-2.12.6")
     implementation fg.deobf("maven.modrinth:citadel:2.5.4")
     implementation fg.deobf("maven.modrinth:i-wanna-skate:1.2.0")
     implementation fg.deobf("maven.modrinth:dye-depot:1.0.0-forge")
+    implementation fg.deobf("maven.modrinth:farmers-delight:1.20.1-1.2.4")
+    implementation fg.deobf("maven.modrinth:my-nethers-delight:4Dt3pl7s")
+    implementation fg.deobf("maven.modrinth:twigs:1.20.1-3.1.1")
+    implementation fg.deobf("software.bernie.geckolib:geckolib-forge-${minecraft_version}:${geckolib_version}")
+    implementation("com.eliotlash.mclib:mclib:20")
+    //implementation "curse.maven:geckolib-388172:5460143"
+    implementation fg.deobf("curse.maven:aromatic-1042492:5499075")
 }
 
 // Example for how to get properties into the manifest for reading at runtime.

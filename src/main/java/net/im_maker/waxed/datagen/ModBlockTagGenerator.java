@@ -162,12 +162,7 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 WaxedModBlocks.WAXED_FIRE_CORAL_BLOCK.get(),
                 WaxedModBlocks.WAXED_HORN_CORAL_BLOCK.get()
         );
-        //It doesn't work LOL :P
-        /*
-        for (int i = 0; i < Blocks.SAND.defaultBlockState().getTags().toList().size(); i++) {
-            this.tag( WaxedModBlocks.WAX_PILLAR.get().defaultBlockState().getTags().toList().get(i)).add(WaxedModBlocks.WAXED_SAND.get());
-        }
-         */
+
         this.tag(BlockTags.MINEABLE_WITH_SHOVEL).add(
                 WaxedModBlocks.WAX_BLOCK.get(),
                 WaxedModBlocks.SOUL_WAX_BLOCK.get(),
@@ -324,9 +319,7 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         this.tag(BlockTags.SOUL_SPEED_BLOCKS).add(
                 WaxedModBlocks.WAXED_SOUL_SAND.get(),
                 WaxedModBlocks.SOUL_WAX_BLOCK.get(),
-                WaxedModBlocks.SOUL_WAX_PILLAR.get(),
-                WaxedModBlocks.SOUL_CANDLE.get(),
-                WaxedModBlocks.SOUL_CANDLE_CAKE.get()
+                WaxedModBlocks.SOUL_WAX_PILLAR.get()
         );
 
         this.tag(BlockTags.SOUL_FIRE_BASE_BLOCKS).add(

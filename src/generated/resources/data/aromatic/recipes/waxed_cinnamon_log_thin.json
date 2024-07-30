@@ -3,13 +3,13 @@
   "category": "building",
   "ingredients": [
     {
-      "item": "supplementaries:feather_block"
+      "item": "aromatic:cinnamon_log_thin"
     },
     {
       "tag": "waxed:can_wax"
     }
   ],
   "result": {
-    "item": "waxed:waxed_feather_block"
+    "item": "aromatic:waxed_cinnamon_log_thin"
   }
 }

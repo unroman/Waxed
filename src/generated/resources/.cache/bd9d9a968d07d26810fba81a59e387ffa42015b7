@@ -1,4 +1,4 @@
-// 1.20.1	2024-04-22T17:38:42.0078316	Tags for minecraft:block mod id waxed
+// 1.20.1	2024-07-14T14:59:06.9050573	Tags for minecraft:block mod id waxed
 a3d8291208292538f407ae29849555b097e4fb6a data/forge/tags/blocks/sand.json
 7fef43fc72db02ad48b0811ef83daf6ab8ee526a data/forge/tags/blocks/sand/colorless.json
 3f06fd2399b70d2a9a98c4ad746c6c282bb59086 data/forge/tags/blocks/sand/red.json
@@ -9,14 +9,17 @@ aa1dffd0ef4fa6a0e6cdf97f9089bc008c5f4eab data/minecraft/tags/blocks/candles.json
 a2069a26f476b488369b70b8958bbe669e8ff4fe data/minecraft/tags/blocks/candle_cakes.json
 04054f75c01beb2a5af78b4d432515b300c46505 data/minecraft/tags/blocks/infiniburn_overworld.json
 06630d8477787695bb14fd47e902e652e198f686 data/minecraft/tags/blocks/mineable/hoe.json
-8a33b064198251db22273b1e839abe0525d03c24 data/minecraft/tags/blocks/mineable/pickaxe.json
+4d9083fdd6c2646c397886a2df42377dd1d33e6e data/minecraft/tags/blocks/mineable/pickaxe.json
 b50072ab99f0ac604cf2f8217ffb5d184c385f14 data/minecraft/tags/blocks/mineable/shovel.json
-b298ba62a8328b89e185587cb219121a8aaf1ae2 data/minecraft/tags/blocks/piglin_repellents.json
+c5fb0d665947cc08f4ad18c2bb5a5c5f69b65e14 data/minecraft/tags/blocks/piglin_repellents.json
 a3d8291208292538f407ae29849555b097e4fb6a data/minecraft/tags/blocks/sand.json
+2160de08d5a035788d8aa34c7ab532ed5d49fa31 data/minecraft/tags/blocks/slabs.json
 a3d8291208292538f407ae29849555b097e4fb6a data/minecraft/tags/blocks/smelts_to_glass.json
 a511458b639099f330b215cb2fb1586df69a7c74 data/minecraft/tags/blocks/snow.json
 0326e8699598d6db865cf62ba7ecc5265955d46e data/minecraft/tags/blocks/snow_layer_can_survive_on.json
 13e66d6fc17ee07e4dd5867697fd274fd9a6ecc5 data/minecraft/tags/blocks/soul_fire_base_blocks.json
-dc85d7eca1fd0e5ba8544f2df476ab989be14c31 data/minecraft/tags/blocks/soul_speed_blocks.json
+c8cb6bb723adde9cd6cedac7be503d1cbb840a98 data/minecraft/tags/blocks/soul_speed_blocks.json
+99c541c56d30145fe596938bfdfd01de512cd2d8 data/minecraft/tags/blocks/stairs.json
+d348744eb11429dc766024def8af8ab35961b61c data/minecraft/tags/blocks/walls.json
 0326e8699598d6db865cf62ba7ecc5265955d46e data/minecraft/tags/blocks/wither_summon_base_blocks.json
 01aeab78e365931cdbb3e77a33fcb64089e3431f data/waxed/tags/blocks/wax_pillars.json

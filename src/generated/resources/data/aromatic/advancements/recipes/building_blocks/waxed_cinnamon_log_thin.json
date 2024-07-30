@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_feather_block": {
+    "has_cinnamon_log_thin": {
       "conditions": {
         "items": [
           {
             "items": [
-              "supplementaries:feather_block"
+              "aromatic:cinnamon_log_thin"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "waxed:waxed_feather_block"
+        "recipe": "aromatic:waxed_cinnamon_log_thin"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_feather_block",
+      "has_cinnamon_log_thin",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "waxed:waxed_feather_block"
+      "aromatic:waxed_cinnamon_log_thin"
     ]
   },
   "sends_telemetry_event": false

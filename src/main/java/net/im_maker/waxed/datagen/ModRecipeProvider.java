@@ -2,12 +2,15 @@ package net.im_maker.waxed.datagen;
 
 import com.github.alexthe668.iwannaskate.server.item.IWSItemRegistry;
 import com.ninni.dye_depot.registry.DDItems;
+import com.ninni.twigs.registry.TwigsBlocks;
+import com.soytutta.mynethersdelight.common.registry.MNDBlocks;
 import com.teamabnormals.buzzier_bees.core.registry.BBBlocks;
 import com.teamabnormals.upgrade_aquatic.core.registry.UABlocks;
 import net.im_maker.waxed.Waxed;
 import net.im_maker.waxed.common.block.WaxedModBlocks;
 import net.im_maker.waxed.common.item.WaxedModItems;
 import net.im_maker.waxed.common.tags.WaxedModItemTags;
+import net.mcreator.aromatic.init.AromaticModBlocks;
 import net.mehvahdjukaar.supplementaries.reg.ModRegistry;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
@@ -340,6 +343,22 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                     .unlockedBy(getHasName(WaxedModItems.WAX.get()), has(WaxedModItems.WAX.get()))
                     .unlockedBy(getHasName(Items.HONEYCOMB), has(Items.HONEYCOMB))
                     .save(pWriter, new ResourceLocation("iwannaskate", "shimmering_wax"));
+        }
+
+        if (ModList.get().isLoaded("aromatic")) {
+            waxedBlock(AromaticModBlocks.WAXED_CINNAMON_LOG_THIN.get(), AromaticModBlocks.CINNAMON_LOG_THIN.get(), pWriter);
+            waxedBlock(AromaticModBlocks.WAXED_STRIPPED_CINNAMON_LOG_THIN.get(), AromaticModBlocks.STRIPPED_CINNAMON_LOG_THIN.get(), pWriter);
+        }
+
+        if (ModList.get().isLoaded("mynethersdelight")) {
+            waxedBlock(MNDBlocks.WAXED_HOGLIN_TROPHY.get(), MNDBlocks.HOGLIN_TROPHY.get(), pWriter);
+        }
+
+        if (ModList.get().isLoaded("twigs")) {
+            waxedBlock(TwigsBlocks.WAXED_COPPER_PILLAR.get(), TwigsBlocks.COPPER_PILLAR.get(), pWriter, new ResourceLocation("twigs", "waxed_copper_pillar_from_wax"));
+            waxedBlock(TwigsBlocks.WAXED_EXPOSED_COPPER_PILLAR.get(), TwigsBlocks.EXPOSED_COPPER_PILLAR.get(), pWriter, new ResourceLocation("twigs", "waxed_exposed_copper_pillar_from_wax"));
+            waxedBlock(TwigsBlocks.WAXED_WEATHERED_COPPER_PILLAR.get(), TwigsBlocks.WEATHERED_COPPER_PILLAR.get(), pWriter, new ResourceLocation("twigs", "waxed_weathered_copper_pillar_from_wax"));
+            waxedBlock(TwigsBlocks.WAXED_OXIDIZED_COPPER_PILLAR.get(), TwigsBlocks.OXIDIZED_COPPER_PILLAR.get(), pWriter, new ResourceLocation("twigs", "waxed_oxidized_copper_pillar_from_wax"));
         }
 
         if (ModList.get().isLoaded("quark")) {

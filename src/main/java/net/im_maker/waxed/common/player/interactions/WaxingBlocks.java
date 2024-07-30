@@ -4,12 +4,16 @@ import com.google.common.base.Suppliers;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
 import com.ninni.dye_depot.registry.DDBlocks;
+import com.ninni.twigs.registry.TwigsBlocks;
+import com.soytutta.mynethersdelight.MyNethersDelight;
+import com.soytutta.mynethersdelight.common.registry.MNDBlocks;
 import com.teamabnormals.upgrade_aquatic.core.registry.UABlocks;
 import net.im_maker.waxed.Waxed;
 import net.im_maker.waxed.common.block.WaxedModBlocks;
 import net.im_maker.waxed.common.item.WaxedModItems;
 import net.im_maker.waxed.common.sounds.WaxedModSounds;
 import net.im_maker.waxed.common.tags.WaxedModItemTags;
+import net.mcreator.aromatic.init.AromaticModBlocks;
 import net.mehvahdjukaar.supplementaries.reg.ModRegistry;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementProgress;
@@ -101,7 +105,7 @@ public class WaxingBlocks {
         return waxedBlocks;
     });
 
-    public static final Supplier<BiMap<Block, Block>> WAXABLES_QUARK_BLOCKS = Suppliers.memoize(() -> {
+    public static final Supplier<BiMap<Block, Block>> WAXABLES_MODDED_BLOCKS = Suppliers.memoize(() -> {
         BiMap<Block, Block> waxedBlocks = HashBiMap.create();
         if (ModList.get().isLoaded("quark")) {
             String[] colors = {"red", "orange", "yellow", "green", "blue", "indigo", "violet", "white", "black"};
@@ -126,7 +130,20 @@ public class WaxingBlocks {
                 waxedBlocks.put(VerticalCopperSlab, waxedVerticalCopperSlab);
             }
         }
-        waxedBlocks.putAll(waxedBlocks);
+        if (ModList.get().isLoaded("mynethersdelight")) {
+            waxedBlocks.put(MNDBlocks.HOGLIN_TROPHY.get(), MNDBlocks.WAXED_HOGLIN_TROPHY.get());
+        }
+        if (ModList.get().isLoaded("aromatic")) {
+            waxedBlocks.put(AromaticModBlocks.CINNAMON_LOG_THIN.get(), AromaticModBlocks.WAXED_CINNAMON_LOG_THIN.get());
+            waxedBlocks.put(AromaticModBlocks.STRIPPED_CINNAMON_LOG_THIN.get(), AromaticModBlocks.WAXED_STRIPPED_CINNAMON_LOG_THIN.get());
+        }
+        if (ModList.get().isLoaded("twigs")) {
+            waxedBlocks.put(TwigsBlocks.COPPER_PILLAR.get(), TwigsBlocks.WAXED_COPPER_PILLAR.get());
+            waxedBlocks.put(TwigsBlocks.EXPOSED_COPPER_PILLAR.get(), TwigsBlocks.WAXED_EXPOSED_COPPER_PILLAR.get());
+            waxedBlocks.put(TwigsBlocks.WEATHERED_COPPER_PILLAR.get(), TwigsBlocks.WAXED_WEATHERED_COPPER_PILLAR.get());
+            waxedBlocks.put(TwigsBlocks.OXIDIZED_COPPER_PILLAR.get(), TwigsBlocks.WAXED_OXIDIZED_COPPER_PILLAR.get());
+        }
+            waxedBlocks.putAll(waxedBlocks);
         return waxedBlocks;
     });
 
@@ -241,8 +258,8 @@ public class WaxingBlocks {
         return Optional.ofNullable(WAXABLE_FODDER_BLOCK.get().inverse().get(block));
     }
 
-    public static Optional<Block> getWaxedQuarkBlocks(Block block) {
-        return Optional.ofNullable(WAXABLES_QUARK_BLOCKS.get().get(block));
+    public static Optional<Block> getWaxedModdedBlocks(Block block) {
+        return Optional.ofNullable(WAXABLES_MODDED_BLOCKS.get().get(block));
     }
 
     public static Optional<Block> getVanillaWaxedCopperBlocks(Block block) {
@@ -373,7 +390,7 @@ public class WaxingBlocks {
         BlockPos blockPos = interactEvent.getPos();
         BlockState blockState = level.getBlockState(blockPos);
         ItemStack itemStack = interactEvent.getItemStack();
-        var waxedQuarkBlock = getWaxedQuarkBlocks(blockState.getBlock());
+        var waxedQuarkBlock = getWaxedModdedBlocks(blockState.getBlock());
         var waxedVanillaBlock = getVanillaWaxedCopperBlocks(blockState.getBlock());
         if (itemStack.is(WaxedModItems.WAX.get()) && (waxedQuarkBlock.isPresent() || waxedVanillaBlock.isPresent())) {
             Player player = interactEvent.getEntity();

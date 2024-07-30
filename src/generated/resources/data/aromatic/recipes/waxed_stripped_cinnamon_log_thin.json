@@ -3,13 +3,13 @@
   "category": "building",
   "ingredients": [
     {
-      "item": "minecraft:prismarine"
+      "item": "aromatic:stripped_cinnamon_log_thin"
     },
     {
       "tag": "waxed:can_wax"
     }
   ],
   "result": {
-    "item": "waxed:waxed_prismarine"
+    "item": "aromatic:waxed_stripped_cinnamon_log_thin"
   }
 }

@@ -18,6 +18,8 @@ import net.minecraftforge.registries.RegistryObject;
 public class WaxedModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, Waxed.MOD_ID);
+    //Wax =]
+    public static final RegistryObject<Item> WAX = ITEMS.register("wax", () -> new HoneycombItem(new Item.Properties()));
     //Waxed Coral Fans
     public static final RegistryObject<Item> WAXED_TUBE_CORAL_FAN = ITEMS.register("waxed_tube_coral_fan", () -> new StandingAndWallBlockItem(WaxedModBlocks.WAXED_TUBE_CORAL_FAN.get(), WaxedModBlocks.WAXED_TUBE_CORAL_WALL_FAN.get(), new Item.Properties(), Direction.DOWN));
     public static final RegistryObject<Item> WAXED_BRAIN_CORAL_FAN = ITEMS.register("waxed_brain_coral_fan", () -> new StandingAndWallBlockItem(WaxedModBlocks.WAXED_BRAIN_CORAL_FAN.get(), WaxedModBlocks.WAXED_BRAIN_CORAL_WALL_FAN.get(), new Item.Properties(), Direction.DOWN));
@@ -36,8 +38,6 @@ public class WaxedModItems {
     public static final RegistryObject<Item> WAXED_SILK_CORAL_FAN = ITEMS.register("waxed_silk_coral_fan", () -> new StandingAndWallBlockItem(WaxedModBlocks.WAXED_SILK_CORAL_FAN.get(), WaxedModBlocks.WAXED_SILK_CORAL_WALL_FAN.get(), new Item.Properties(), Direction.DOWN));
     public static final RegistryObject<Item> WAXED_CHROME_CORAL_FAN = ITEMS.register("waxed_chrome_coral_fan", () -> new StandingAndWallBlockItem(WaxedModBlocks.WAXED_CHROME_CORAL_FAN.get(), WaxedModBlocks.WAXED_CHROME_CORAL_WALL_FAN.get(), new Item.Properties(), Direction.DOWN));
     public static final RegistryObject<Item> WAXED_PRISMARINE_CORAL_FAN = ITEMS.register("waxed_prismarine_coral_fan", () -> new StandingAndWallBlockItem(WaxedModBlocks.WAXED_PRISMARINE_CORAL_FAN.get(), WaxedModBlocks.WAXED_PRISMARINE_CORAL_WALL_FAN.get(), new Item.Properties(), Direction.DOWN));
-    //Wax =]
-    public static final RegistryObject<Item> WAX = ITEMS.register("wax", () -> new HoneycombItem(new Item.Properties()));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
