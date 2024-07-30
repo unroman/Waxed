@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "twigs:exposed_copper_pillar"
+    },
+    {
+      "tag": "waxed:can_wax"
+    }
+  ],
+  "result": {
+    "item": "twigs:waxed_exposed_copper_pillar"
+  }
+}
